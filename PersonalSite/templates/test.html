@@ -1,0 +1,56 @@
+{% load static %}
+{% load dajaxice_templatetags %}
+<html>
+	<head>
+		<script src="{% static "js/bg-perspective.js" %}"></script>
+		<meta name="viewport" content="width=device-width initial-scale=1.0">
+		<script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+		{% dajaxice_js_import 'nocsrf' %}
+		<style rel="stylesheet" type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			body {
+				background: black;
+			}
+			#bg-img {
+				position: absolute;
+				overflow: hidden;
+			}
+			.layer {
+				overflow: hidden;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			.big-btn {
+				position: absolute;
+				width: 100px;
+				height:100px;
+			}
+		</style>
+		<script>
+			window.onready=function() {
+				$('#bg-img').animate({
+					'width':$(window).width(),
+					'height':$(window).height(),
+				},500,function() {
+					center();
+				});
+			}
+			$(window).mousemove(adjustBackground);
+		</script>
+	</head>
+	<body>
+		<div id="bg-img">
+			<img id="bottom" class="layer center" src="{% static "img/bottom.png" %}"/>
+			<img id="middle" class="layer center" src="{% static "img/middle.png" %}"/>
+			<img id="top" class="layer center" src="{% static "img/top.png" %}"/>
+		</div>
+		<button type="button" class="big-btn" onclick="Dajaxice.ajax.hello(function(d){alert(d.message)})">TEST</button>
+	</body>
+</html>
+
+
+

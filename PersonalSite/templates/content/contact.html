@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<div class='section-card section-title'>
+	<div class='card-title'>
+		<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.png" %}">
+			<span class='content'><h2>Contact Information</h2></span>
+		</img>
+	</div>
+</div>
+<div class='section-card section-item'>
+	<div class='card-title'>
+		Below is my contact information, feel free to contact me through any of the means provided.
+	</div>
+	<div class='card-desc'>
+		<div>
+			<span id="email"><a class="email-link" href="mailto:joe.yuan19@gmail">joe.yuan19@gmail.com</a></span>
+		</div>
+		<div>
+			<span id="phone"><a class='phone-link'>1-347-555-1371</a></span>
+		</div>
+	</div>
+</div>
+<div class='section-card section-title'>
+	<div class='card-title'>
+		<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.png" %}">
+			<span class='content'><h2>Social Media Links</h2></span>
+		</img>
+	</div>
+</div>
+<div class='section-card section-item'>
+	<div class='card-desc'>
+		<ul class='social-media-links'>
+			<li class="social-media-item">
+				<a id="gh" class="social-media-link" href="https://github.com/joeyuan19">
+					<img id="gh-icon" class="contact-icon" src="{% static "img/social_icons/gh-icon.png" %}"></img>
+				</a>
+			</li>
+			<li class="social-media-item">
+				<a id="tw" class="social-media-link" href="https://twitter.com/JoeYuan19">
+					<img id="tw-icon" class="contact-icon" src="{% static "img/social_icons/tw-icon.png" %}"></img>
+				</a>
+			</li>
+			<li class="social-media-item">
+				<a id="fb" class="social-media-link" href="https://www.facebook.com/joe.yuan54">
+					<img id="fb-icon" class="contact-icon" src="{% static "img/social_icons/fb-icon.png" %}"></img>
+				</a>
+			</li>
+			<li class="social-media-item">
+				<a id="li" class="social-media-link" href="https://www.linkedin.com/pub/joseph-yuan/78/5a0/167/">
+					<img  id="li-icon"class="contact-icon" src="{% static "img/social_icons/li-icon.png" %}"></img>
+				</a>
+			</div>
+		</ul><!-- social-media-links -->
+	</div><!-- card-desc -->
+</div>
+<script>
+	// gh
+	$('#gh-icon').on("mouseenter",function() {
+		$('#gh-icon').attr('src','{% static "img/social_icons/gh-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#gh-icon').attr('src','{% static "img/social_icons/gh-icon.png" %}')
+	});
+	// li
+	$('#li-icon').on("mouseenter",function() {
+		$('#li-icon').attr('src','{% static "img/social_icons/li-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#li-icon').attr('src','{% static "img/social_icons/li-icon.png" %}')
+	});
+	// tw
+	$('#tw-icon').on("mouseenter",function() {
+		$('#tw-icon').attr('src','{% static "img/social_icons/tw-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#tw-icon').attr('src','{% static "img/social_icons/tw-icon.png" %}')
+	});
+	// fb
+	$('#fb-icon').on("mouseenter",function() {
+		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon.png" %}')
+	});
+</script>

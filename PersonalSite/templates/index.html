@@ -1,0 +1,103 @@
+{% load staticfiles %}
+{% load dajaxice_templatetags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> -- Joe Yuan -- </title>
+		<meta name="viewport" content="width=device-width initial-scale=1.0">
+		<link rel="shortcut icon" href="{% static "img/favicon.ico" %}" />
+		<!-- CSS Styles  -->
+		<link href="{% static "css/personal_site_styles.css" %}" rel="stylesheet" media="all" />
+		<!-- JS Scripts -->
+		<script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+		{% dajaxice_js_import 'nocsrf' %}
+		<script type="text/javascript" src="{% static "js/page_loader.js" %}"></script>	
+		<script type="text/javascript" src="{% static "js/bg-perspective.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/transitions.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/init.js" %}"></script>
+	</head>
+	<body>
+		<div id="bg-img">
+			<img id="bottom" class="layer center" src="{% static "img/background/bottom.png" %}"/>
+			<img id="middle" class="layer center" src="{% static "img/background/middle.png" %}"/>
+			<img id="top" class="layer center" src="{% static "img/background/top.png" %}"/>
+		</div>
+		<!--<img src="{% static "img/bg.png" %}" id="bg-img"></img>-->
+		<div id="debug-box" style="background: white; position: absolute; top: 0; left: 0; width: 200px; height: 100px;">Debug:<br><span id="debug"></span></div>
+		<!-- Content Section -->
+		<div id="content">
+			<div id="page" class="page" style="display: none;">
+				<div id="page-nav" class="nav-table" style="display: none;">
+					<img class='backdrop-image' src='{% static "img/backdrops/nav-bar-bg.png" %}'>
+					<div class="nav-table-col left">
+						<div id="home-btn" class="nav-item nav-home home">Joe Yuan</div>
+					</div>
+					<div class="nav-table-col right">
+						<div class="nav-table-row">
+							<div class="nav-table-col left">
+								<div id='nav-about' class="nav-item nav-btn about">About Me</div>
+							</div>
+							<div class="nav-table-col left">
+								<div id='nav-projects' class="nav-item nav-btn projects">Projects</div>
+							</div>
+						</div>
+						<div class="nav-table-row">
+							<div class="nav-table-col left">
+								<div id='nav-contact' class="nav-item nav-btn contact">Contact</div>
+							</div>
+							<div class="nav-table-col left">
+								<div id='nav-resume' class="nav-item nav-btn resume">Resume</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /page-nav -->
+				<div id="page-content">
+				</div><!-- /page-cont -->
+			</div> 
+			<div id="menu">
+				<img class='backdrop-image' src='{% static "img/backdrops/menu-bg.png" %}'>
+				<div class="menu-section">
+					<div name="menu-btn-container" class="link-section vert-centered">
+						<div class='menu-link vert-centered left'>
+							<span class='left about'>About Me</span>
+						</div>
+						<div class='menu-link vert-centered right'>
+							<span class='right projects'>Projects</span>
+						</div>
+					</div>
+				</div>
+				<div class="menu-section">
+					<div id="name" class="link-section vert-centered">
+						<div class='name-link vert-centered'>
+							<span class="reflected">Joe&nbsp;Yuan</span>
+						</div>
+					</div><!-- /name -->
+				</div>
+				<div class="menu-section">
+					<div id="menu-btn-container" class="link-section vert-centered"> 
+						<div class='menu-link vert-centered left'>
+							<span class='left contact'>Contact</span>
+						</div>
+						<div class='menu-link vert-centered right'>
+							<span class='right resume'>Resume</span>
+						</div>
+					</div>
+				</div>
+			</div><!-- /menu -->
+		</div><!-- /content -->
+		<!-- Content Pages -->
+		<div id="content-storage" style="display: none;">
+			<div id="about-storage"></div>
+			<div id="resume-storage"></div>
+			<div id="projects-storage"></div>
+			<div id="contact-storage"></div>
+		</div>
+		<!-- Initialize buttons -->
+		<script type="text/javascript" src="{% static "js/init_UI.js" %}"></script>
+	</body>
+</html>
+
+
+
+
+
