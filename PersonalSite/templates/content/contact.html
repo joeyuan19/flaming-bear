@@ -11,12 +11,20 @@
 		Below is my contact information, feel free to contact me through any of the means provided.
 	</div>
 	<div class='card-desc'>
-		<div>
-			<span id="email"><a class="email-link" href="mailto:joe.yuan19@gmail">joe.yuan19@gmail.com</a></span>
-		</div>
-		<div>
-			<span id="phone"><a class='phone-link'>1-347-555-1371</a></span>
-		</div>
+		<ul class='contact-list card-image'>
+			<li class='contact-list-item'>
+				<a class="email-link" href="mailto:joe.yuan19@gmail">
+					<img id="mail-icon" src='{% static "img/social_icons/mail-icon.png" %}'/>
+				</a>
+			</li>
+			<li></li>
+			<li></li>
+			<li class='contact-list-item'>
+				<a class='phone-link' href="">
+					<img id="phone-icon" src='{% static "img/social_icons/phone-icon.png" %}'/>
+				</a>
+			</li>
+		</ul>
 	</div>
 </div>
 <div class='section-card section-title'>
@@ -28,28 +36,28 @@
 </div>
 <div class='section-card section-item'>
 	<div class='card-desc'>
-		<ul class='social-media-links'>
-			<li class="social-media-item">
-				<a id="gh" class="social-media-link" href="https://github.com/joeyuan19">
+		<ul class='contact-list card-image'>
+			<li class="contact-list-item">
+				<a id="gh" class="contact-item-link" href="https://github.com/joeyuan19" target="_newtab">
 					<img id="gh-icon" class="contact-icon" src="{% static "img/social_icons/gh-icon.png" %}"></img>
 				</a>
 			</li>
-			<li class="social-media-item">
-				<a id="tw" class="social-media-link" href="https://twitter.com/JoeYuan19">
+			<li class="contact-list-item">
+				<a id="tw" class="contact-item-link" href="https://twitter.com/JoeYuan19" target="_newtab">
 					<img id="tw-icon" class="contact-icon" src="{% static "img/social_icons/tw-icon.png" %}"></img>
 				</a>
 			</li>
-			<li class="social-media-item">
-				<a id="fb" class="social-media-link" href="https://www.facebook.com/joe.yuan54">
+			<li class="contact-list-item">
+				<a id="fb" class="contact-item-link" href="https://www.facebook.com/joe.yuan54" target="_newtab">
 					<img id="fb-icon" class="contact-icon" src="{% static "img/social_icons/fb-icon.png" %}"></img>
 				</a>
 			</li>
-			<li class="social-media-item">
-				<a id="li" class="social-media-link" href="https://www.linkedin.com/pub/joseph-yuan/78/5a0/167/">
+			<li class="contact-list-item">
+				<a id="li" class="contact-item-link" href="https://www.linkedin.com/pub/joseph-yuan/78/5a0/167/" target="_newtab">
 					<img  id="li-icon"class="contact-icon" src="{% static "img/social_icons/li-icon.png" %}"></img>
 				</a>
 			</div>
-		</ul><!-- social-media-links -->
+		</ul><!-- contact-list -->
 	</div><!-- card-desc -->
 </div>
 <script>
@@ -76,5 +84,15 @@
 		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon-hover.png" %}')
 	}).on("mouseleave",function() {
 		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon.png" %}')
+	});
+	$('#mail-icon').on("mouseenter",function() {
+		$('#mail-icon').attr('src','{% static "img/social_icons/mail-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#mail-icon').attr('src','{% static "img/social_icons/mail-icon.png" %}')
+	});
+	$('#phone-icon').on("mouseenter",function() {
+		$('#phone-icon').attr('src','{% static "img/social_icons/phone-icon-hover.png" %}')
+	}).on("mouseleave",function() {
+		$('#phone-icon').attr('src','{% static "img/social_icons/phone-icon.png" %}')
 	});
 </script>

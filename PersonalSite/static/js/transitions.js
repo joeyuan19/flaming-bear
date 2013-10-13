@@ -95,8 +95,9 @@ function center_vert_items() {
 function resize_cards() {
 	$('.section-card').each(
 		function() {
+			resizeImageCards();
 			new_height = getInnerHeight($(this));
-			$(this).css('height',new_height+1);
+			$(this).css('height',new_height+5);
 		}
 	);
 }
@@ -166,7 +167,33 @@ function load_cards() {
 		}
 	);
 }
-
+function debug(obj) {
+	$('#debug').empty();
+	$('#debug').html("" + obj);
+}
+function resizeImageCards() {
+	$('.card-image').each( function() {
+	    var children = $(this).children('li');
+		var n = children.length;
+		var new_width = Math.floor($(this).parent().width()/n);
+		$(this).parent().css('height',new_width+'px');
+		children.find('img').each(function(){
+			$(this).css('width',new_width+'px');
+			$(this).css('height',new_width+'px');
+		});
+	});
+}
+function recursiveSetHeightWidth(obj,width,height) {
+	$(this).css('width',width+'px');
+	$(this).css('height',width+'px');
+	if (obj.children().length > 0) {
+		obj.children().each(
+			function() {
+				recursiveSetHeightAndWidth($(this),width,height);	
+			}
+		);
+	}
+}
 function cascade(elm) {
 	elm.css('display','none');
 	elm.css('opacity',0);

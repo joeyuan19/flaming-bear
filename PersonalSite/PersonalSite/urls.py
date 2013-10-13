@@ -12,10 +12,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
 	url(r'^$','PersonalSite.views.homepage', name='homepage'),
 	
-	# simple
-	url(r'^simple/$', 'simple.views.index'),
-	url(r'^test/$', 'PersonalSite.views.test'),
-	
 	# Admin
 	url(r'^admin/', include(admin.site.urls)),
 	

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!-- blog-css -->
+	</head>
+	<body>
+		<div class='blog-nav'>
+		</div>
+		<div id='content'>
+		{% block 'content' %}
+			<div class='no-content'>
+				No posts found
+			</div>
+		{% endblock %}
+		</div>
+	</body>
+</html>
+
+
