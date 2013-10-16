@@ -1,6 +1,8 @@
 *.log
 *.pot
 *.pyc
+*.swp
+
 .DS_STORE
 local_settings.py
 
