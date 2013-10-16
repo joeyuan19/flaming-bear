@@ -231,6 +231,9 @@ html, body {
 	background: none;
 	overflow: hidden;
 }
+#page {
+	box-shadow: 0px 0px 20px #999;
+}
 #page-nav {
 	overflow: hidden;
 	border-bottom: 5px solid #8FBFDF;
