@@ -5,6 +5,7 @@
 	position: relative;
 	/* debug */
 	/*border: 1px solid #FFF;*/
+	text-shadow: 0px 0px 5px #777;
 }
 html, body {
 	position: absolute;
