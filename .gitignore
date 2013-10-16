@@ -2,3 +2,8 @@
 *.pot
 *.pyc
 local_settings.py
+
+PersonalSite/KEY.txt
+PersonalSite/password.txt
+PersonalSite/password.csv
+

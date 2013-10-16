@@ -5,7 +5,7 @@ from dajaxice.decorators import dajaxice_register
 
 #@dajaxice_register(method='GET', name='content.load')
 #@dajaxice_register(method='POST',name='content.load')
-@dajaxice_register
+@dajaxice_register(name='content.load')
 def load(request,section_id):
 	if len(section_id) <= 0:
 		return
