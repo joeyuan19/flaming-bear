@@ -181,8 +181,20 @@ html, body {
 
 /* contact page */
 .contact-icon {
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	filter: grayscale(100%); 
+}
+.contact-icon:hover {
 	width: 100px;
 	height: 100px;
+	-webkit-filter: grayscale(0%);
+	-moz-filter: grayscale(0%);
+	-o-filter: grayscale(0%);
+	-ms-filter: grayscale(0%);
+	filter: grayscale(0%); 
 }
 .contact-list-item {
 	float: left;
@@ -197,6 +209,7 @@ html, body {
 .contact-item-link {
 	text-decoration:none;
 }
+
 
 
 

@@ -14,14 +14,14 @@
 		<ul class='contact-list card-image'>
 			<li class='contact-list-item'>
 				<a class="email-link" href="mailto:joe.yuan19@gmail">
-					<img id="mail-icon" src='{% static "img/social_icons/mail-icon.png" %}'/>
+					<img id="mail-icon" class='contact-icon' src='{% static "img/social_icons/mail-icon-hover.png" %}'/>
 				</a>
 			</li>
 			<li></li>
 			<li></li>
 			<li class='contact-list-item'>
 				<a class='phone-link' href="">
-					<img id="phone-icon" src='{% static "img/social_icons/phone-icon.png" %}'/>
+					<img id="phone-icon" class='contact-icon' src='{% static "img/social_icons/phone-icon-hover.png" %}'/>
 				</a>
 			</li>
 		</ul>
@@ -39,60 +39,24 @@
 		<ul class='contact-list card-image'>
 			<li class="contact-list-item">
 				<a id="gh" class="contact-item-link" href="https://github.com/joeyuan19" target="_newtab">
-					<img id="gh-icon" class="contact-icon" src="{% static "img/social_icons/gh-icon.png" %}"></img>
+					<img id="gh-icon" class="contact-icon" src="{% static "img/social_icons/gh-icon-hover.png" %}"></img>
 				</a>
 			</li>
 			<li class="contact-list-item">
 				<a id="tw" class="contact-item-link" href="https://twitter.com/JoeYuan19" target="_newtab">
-					<img id="tw-icon" class="contact-icon" src="{% static "img/social_icons/tw-icon.png" %}"></img>
+					<img id="tw-icon" class="contact-icon" src="{% static "img/social_icons/tw-icon-hover.png" %}"></img>
 				</a>
 			</li>
 			<li class="contact-list-item">
 				<a id="fb" class="contact-item-link" href="https://www.facebook.com/joe.yuan54" target="_newtab">
-					<img id="fb-icon" class="contact-icon" src="{% static "img/social_icons/fb-icon.png" %}"></img>
+					<img id="fb-icon" class="contact-icon" src="{% static "img/social_icons/fb-icon-hover.png" %}"></img>
 				</a>
 			</li>
 			<li class="contact-list-item">
 				<a id="li" class="contact-item-link" href="https://www.linkedin.com/pub/joseph-yuan/78/5a0/167/" target="_newtab">
-					<img  id="li-icon"class="contact-icon" src="{% static "img/social_icons/li-icon.png" %}"></img>
+					<img  id="li-icon"class="contact-icon" src="{% static "img/social_icons/li-icon-hover.png" %}"></img>
 				</a>
 			</div>
 		</ul><!-- contact-list -->
 	</div><!-- card-desc -->
 </div>
-<script>
-	// gh
-	$('#gh-icon').on("mouseenter",function() {
-		$('#gh-icon').attr('src','{% static "img/social_icons/gh-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#gh-icon').attr('src','{% static "img/social_icons/gh-icon.png" %}')
-	});
-	// li
-	$('#li-icon').on("mouseenter",function() {
-		$('#li-icon').attr('src','{% static "img/social_icons/li-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#li-icon').attr('src','{% static "img/social_icons/li-icon.png" %}')
-	});
-	// tw
-	$('#tw-icon').on("mouseenter",function() {
-		$('#tw-icon').attr('src','{% static "img/social_icons/tw-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#tw-icon').attr('src','{% static "img/social_icons/tw-icon.png" %}')
-	});
-	// fb
-	$('#fb-icon').on("mouseenter",function() {
-		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#fb-icon').attr('src','{% static "img/social_icons/fb-icon.png" %}')
-	});
-	$('#mail-icon').on("mouseenter",function() {
-		$('#mail-icon').attr('src','{% static "img/social_icons/mail-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#mail-icon').attr('src','{% static "img/social_icons/mail-icon.png" %}')
-	});
-	$('#phone-icon').on("mouseenter",function() {
-		$('#phone-icon').attr('src','{% static "img/social_icons/phone-icon-hover.png" %}')
-	}).on("mouseleave",function() {
-		$('#phone-icon').attr('src','{% static "img/social_icons/phone-icon.png" %}')
-	});
-</script>
