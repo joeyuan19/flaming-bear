@@ -10,13 +10,13 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^$','PersonalSite.views.homepage', name='homepage'),
-	
+	url(r'^test$','PersonalSite.views.test',name='test'),
 	# Admin
 	url(r'^admin/', include(admin.site.urls)),
 	
 	# Ajax urls
 	(dajaxice_config.dajaxice_url,include('dajaxice.urls')),
+	url(r'','PersonalSite.views.homepage', name='homepage'),
 
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

@@ -130,14 +130,6 @@ html, body {
 .section-card {
 	width: 100%;
 	font-family: 'courier new', sans-serif;
-	/*
-	background: yellow;
-	background: -webkit-linear-gradient(#000 50%, #444, #CCC 75%, #FFF 100%);
-	background: -moz-linear-gradient(#000 50%, #444, #CCC 75%, #FFF 100%);
-	background: -ms-linear-gradient(#000 50%, #444, #CCC 75%, #FFF 100%);
-	background: -o-linear-gradient(#000 50%, #444, #CCC 90%, #FFF 100%);
-	background: linear-gradient(#000 0%, #000 95%, #FFF 100%);
-	*/
 	color: #FFFFFF;
 	display: none;
 }
@@ -146,8 +138,6 @@ html, body {
 }
 .section-title {
 	font-family: 'optima','candara','arial', sans-serif;
-}
-.section-with-images {
 }
 .card-footer {
 	width: 100%;
@@ -160,10 +150,12 @@ html, body {
 	height: 30px;
 }
 .card-title {
+	padding-left: 5px;
 	font-size: 1.5em;
 	text-align: left;
 }
-.card-desc {
+.card-desc,.card-duration {
+	padding-left: 5px;
 	font-size: 1.25em;
 	text-align: left;
 }
@@ -178,6 +170,17 @@ html, body {
 .section-div {
 	width: 100%;
 }
+.preview-image-container {
+	width: 39%;
+}
+.preview-image {
+	max-width: 100%;
+}
+.preview-text {
+	width: 59%;
+}
+
+
 
 /* contact page */
 .contact-icon {

@@ -2,53 +2,10 @@
 {% load dajaxice_templatetags %}
 <html>
 	<head>
-		<script src="{% static "js/bg-perspective.js" %}"></script>
-		<meta name="viewport" content="width=device-width initial-scale=1.0">
-		<script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
-		{% dajaxice_js_import 'nocsrf' %}
-		<style rel="stylesheet" type="text/css">
-			* {
-				margin: 0px;
-				padding: 0px;
-			}
-			body {
-				background: black;
-			}
-			#bg-img {
-				position: absolute;
-				overflow: hidden;
-			}
-			.layer {
-				overflow: hidden;
-				position: absolute;
-				left: 0px;
-				top: 0px;
-			}
-			.big-btn {
-				position: absolute;
-				width: 100px;
-				height:100px;
-			}
-		</style>
-		<script>
-			window.onready=function() {
-				$('#bg-img').animate({
-					'width':$(window).width(),
-					'height':$(window).height(),
-				},500,function() {
-					center();
-				});
-			}
-			$(window).mousemove(adjustBackground);
-		</script>
 	</head>
 	<body>
-		<div id="bg-img">
-			<img id="bottom" class="layer center" src="{% static "img/bottom.png" %}"/>
-			<img id="middle" class="layer center" src="{% static "img/middle.png" %}"/>
-			<img id="top" class="layer center" src="{% static "img/top.png" %}"/>
-		</div>
-		<button type="button" class="big-btn" onclick="Dajaxice.ajax.hello(function(d){alert(d.message)})">TEST</button>
+		<object codetype="application/java" classid="java:{% static "code/string-mass/StringMass.class" %}" archive="{% static "code/string-mass/string-mass.jar" %}" width="740" height="400"></object>
+		<applet codebase="{% static "code/string-mass/bin" %}" code="StringMass" archive="{% static "code/string-mass/string-mass.jar" %}" width=1100 height=1000>Sorry your browser does not support this applet.  This applet requires a Java plugin.  If you are using an Apple computer running OS X, you will likely have to use Safari and approve the application due to a security dispute between Apple and Oracle.</applet>
 	</body>
 </html>
 
