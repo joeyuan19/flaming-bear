@@ -13,6 +13,7 @@ html, body {
 }
 
 ::selection {
+	text-color: rgba(255,255,255,0);
 	text-shadow: 2px 2px #0BA;
 	color: black;
 	background: #FFF;
