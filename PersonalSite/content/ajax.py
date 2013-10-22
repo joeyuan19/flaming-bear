@@ -22,12 +22,18 @@ def load(request,section_id):
 
 @dajaxice_register(name='content.sneaky')
 def sneaky(request):
+<<<<<<< HEAD
 	try:
 		f = open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)) +'/sneaky.txt','r')
 		json = {'cargo':f.readline().replace('\n','')[::-1]}
 		f.close()
 	except:
 		json = {'cargo':''}
+=======
+	f = open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)) +'/extras/sneaky.txt','r')
+	json = {'cargo':f.readline().replace('\n','')}
+	f.close()
+>>>>>>> 6c2337332b138e7c7b4844b32993d0fe3c6b1f43
 	return simplejson.dumps(json)
 
 
