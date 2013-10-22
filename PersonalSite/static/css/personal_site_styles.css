@@ -191,10 +191,13 @@ a:hover {
 
 /* set the z index for the items related to the stickies */
 .sticky {
+	z-index: 2;
+}
+.sticky * {
 	z-index: 3;
 }
 .sticky-container {
-	z-index: 2;
+	z-index: 0;
 }
 .sticky-container *:not(.sticky *) {
 	z-index: 1;
