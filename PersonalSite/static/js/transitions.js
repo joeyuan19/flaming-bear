@@ -93,13 +93,15 @@ function center_vert_items() {
 }
 
 function resize_cards() {
-	$('.section-card').each(
+	$('.item-bin .section-card').each(
 		function() {
 			resizeImageCards();
 			new_height = getInnerHeight($(this));
 			$(this).css('height',new_height+5);
 		}
 	);
+	$('.sticky').css('position','relative');
+	check_stickies();
 }
 
 function resize_all() {
@@ -118,18 +120,18 @@ function resize_all() {
 	$('#menu').css('left',0);
 	$('#menu').css('width','100%');
 	$('#menu').css('height','100%');
-	center_vert_items();
 	$('#page').css('top',0);
 	$('#page').css('left',0);
 	$('#page').css('width','100%');
 	$('#page').css('height','100%');
+	resize_cards();
 	$('#page-nav').css('width','100%');
 	$('#page-nav').css('height','10%');
 	$('.nav-table-col').css('height','100%');
 	$('.nav-table-col').css('width','48%');
 	$('.nav-table-row').css('height','48%');
 	$('.nav-table-row').css('width','100%');
-	resize_cards();
+	center_vert_items();
 	$('.nav-item').each(function() {scaleFont($(this).parent());});
 }
 function scaleFont(elm) {
@@ -139,14 +141,12 @@ function scaleFont(elm) {
 	    old_size = elm.css('font-size');
 	elm.css('font-size',new_size+'px');
 }
-
 function clear_section() {
 	$('#page-content').empty();
 }
-
-
 function load_cards() {
-	$('#page-content > .section-card:first-child').each(
+	$('.sticky').css('position','relative');
+	$('#page-content .item-bin > .section-card:first-child').each(
 		function() {
 			$(this).css('display','none');
 			$(this).css('opacity',0);
@@ -212,85 +212,6 @@ function cascade(elm) {
 		}
 	);
 }
-function slide_menu(direction) {
-	var state = $('#menu').css('display');
-	var end_top, end_left;
-	var end_width, end_height;
-	var new_state='block';
-	if (direction == 'left') {
-		if (state == 'none') {
-			$('#menu').css('display','block');
-			end_width = $('#content').width();
-			end_height = $('#content').height();
-			end_top = 0;
-			end_left = 0;
-			$('#menu').css('top',0 + 'px');
-			$('#menu').css('left',0 + 'px');
-		} else {
-			end_width = 0;
-			end_height = $('#content').height();
-			end_top = 0;
-			end_left = 0;
-			new_state='none';
-		}
-	} else if (direction == 'right') {
-		if (state == 'none') {	
-			$('#menu').css('display','block');
-			end_width = $('#content').width();
-			end_height = $('#content').height();
-			end_top = 0;
-			end_left = 0;
-			$('#menu').css('top',0 + 'px');
-			$('#menu').css('left',$('#content').width() + 'px');
-		} else {
-			end_width  = 0;
-			end_height = $('#content').height();
-			end_top    = 0;
-			end_left   = $('#content').width();
-			new_state  = 'none';
-		}
-	} else if (direction == 'top') {
-		if (state == 'none') {	
-			$('#menu').css('display','block');
-			end_width = $('#content').width();
-			end_height = $('#content').height();
-			end_top = 0;
-			end_left = 0;
-			$('#menu').css('top',0 + 'px');
-			$('#menu').css('left',0 + 'px');
-			$('#menu').css('width',$('#content').width() + 'px');
-			$('#menu').css('height',0 + 'px');
-		} else {
-			end_width = $('#content').width();
-			end_height = 0;
-			end_top = 0;
-			end_left = 0;
-			new_state='none';
-		}
-	} else if (direction == 'bottom') {
-		if (state == 'none') {	
-			$('#menu').css('display','block');
-			end_width = $('#content').width();
-			end_height = $('#content').height();
-			end_top = 0;
-			end_left = 0;
-			$('#menu').css('top',$('#content').height() + 'px');
-			$('#menu').css('left',0 + 'px');
-		} else {
-			end_width = $('#content').width();
-			end_height = 0; 
-			end_top = $('#content').height();
-			end_left = 0;
-			new_state='none';
-		}
-	}
-	$('#menu').animate({
-		width: end_width + 'px',
-		height: end_height + 'px',
-		top: end_top + 'px',
-		left: end_left + 'px'
-	},500,function hide_menu() {$('#menu').css('display',new_state);});
-}
 
 
 function toggle_page(id,start_top,start_left,end_top,end_left) {
@@ -319,11 +240,11 @@ function grow_from_point(id,start_top,start_left,end_top,end_left,end_width,end_
 	$("#"+id).css('width',0);
 	$("#"+id).css('height',0);
 	$("#"+id).animate({
-top: end_top + "px",
-left: end_left + "px",
-width: end_width + "px",
-height: end_height + "px"
-},duration);
+		top: end_top + "px",
+		left: end_left + "px",
+		width: end_width + "px",
+		height: end_height + "px"
+	},duration);
 }
 
 function shrink_to_point(id,end_top,end_left,duration) {

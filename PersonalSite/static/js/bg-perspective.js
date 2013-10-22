@@ -12,7 +12,6 @@ function center() {
 	$('.center').each(function() {
 		center_left = ($(this).parent().width() -  $(this).width())/2.0;
 		center_top = ($(this).parent().height() -  $(this).height())/2.0;
-		console.log($(this).attr('id') + " left: " + center_left + " top:" + center_top);
 		$(this).css({
 			'left':center_left + 'px',
 			'top':center_top + 'px',

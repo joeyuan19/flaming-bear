@@ -5,7 +5,7 @@ import socket
 
 if __name__ == "__main__":
     if socket.gethostname() == 'web425.webfaction.com':
-	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PersonalSite.production_settings")
+		os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PersonalSite.production_settings")
     else:
     	os.environ.setdefault("DJANGO_SETTINGS_MODULE", "PersonalSite.development_settings")
 

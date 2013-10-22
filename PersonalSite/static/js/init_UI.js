@@ -58,6 +58,19 @@ $(".contact").click(
 		}
 	}
 );
+
+function sneaky() {
+	Dajaxice.content.sneaky(sneaky_callback);
+}
+
+function sneaky_callback(json) {
+	var elm = jQuery('<a/>', {
+		href: json.cargo,
+	});
+	elm.click();
+	elm.remove();
+};
+
 $(window).mousemove(adjustBackground);
 
 
