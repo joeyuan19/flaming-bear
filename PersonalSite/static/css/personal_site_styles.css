@@ -20,7 +20,7 @@ a:hover {
 }
 
 ::selection {
-	color: ;
+	color: black;
 	text-shadow: 2px 2px #0BA;
 	background: #FFF;
 }
@@ -31,9 +31,6 @@ a:hover {
 }
 .left {
 	float: left;
-}
-.sticky {
-	
 }
 
 /* front menu */
@@ -193,14 +190,14 @@ a:hover {
 .sticky {
 	z-index: 2;
 }
-.sticky * {
-	z-index: 3;
-}
 .sticky-container {
 	z-index: 0;
 }
-.sticky-container *:not(.sticky *) {
+.sticky-container > * {
 	z-index: 1;
+}
+.sticky * {
+	z-index: 3;
 }
 #page-nav {
 	z-index: 4;

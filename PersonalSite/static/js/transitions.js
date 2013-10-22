@@ -100,8 +100,6 @@ function resize_cards() {
 			$(this).css('height',new_height+5);
 		}
 	);
-	$('.sticky').css('position','relative');
-	check_stickies();
 }
 
 function resize_all() {
@@ -125,6 +123,7 @@ function resize_all() {
 	$('#page').css('width','100%');
 	$('#page').css('height','100%');
 	resize_cards();
+	check_stickies();
 	$('#page-nav').css('width','100%');
 	$('#page-nav').css('height','10%');
 	$('.nav-table-col').css('height','100%');
@@ -145,7 +144,7 @@ function clear_section() {
 	$('#page-content').empty();
 }
 function load_cards() {
-	$('.sticky').css('position','relative');
+	$('.sticky').each(function() {$(this).css('position','relative');});
 	$('#page-content .item-bin > .section-card:first-child').each(
 		function() {
 			$(this).css('display','none');
