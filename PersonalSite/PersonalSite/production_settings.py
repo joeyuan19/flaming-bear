@@ -18,7 +18,6 @@ ALLOWED_HOSTS = ['www.joeyuan.com','joeyuan.com']
 
 STATICFILES_DIRS += (
 	'/home/joeyuan19/webapps/personal_site_django_app/flaming-bear/PersonalSite/static/',
-	'/home/joeyuan19/webapps/personal_site_media/',
 )
 
 EMAIL_HOST = 'smtp.webfaction.com'
