@@ -16,6 +16,10 @@ urlpatterns = patterns('',
 	
 	# Ajax urls
 	(dajaxice_config.dajaxice_url,include('dajaxice.urls')),
+	
+	# blog
+	url(r'^blog/',include('blog.urls')),
+
 	url(r'','PersonalSite.views.homepage', name='homepage'),
 
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

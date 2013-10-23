@@ -1,15 +1,17 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
- *
+ * Functions related to ajax calls
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-  
+
+
 function init_content() {
 	var list = new Array('about','contact','resume','projects');
 	for (var i = 0; i < list.length; i++) {
 		load_section(list[i]);
 	}
+	window.loaded = new Array();
 }
 
 function load_section(section_id) {
@@ -21,9 +23,12 @@ function load_section_callback(json) {
 }
 
 function load_page_to_section(destination_id,origin_id) {
+	console.log(origin_id + " " + ($('#'+origin_id+'-storage *').length <= 0));
 	if ($('#'+origin_id+'-storage *').length <= 0) {
 		load_section(origin_id);
 	}
 	$('#'+destination_id).html($("#"+origin_id+"-storage").html());
 }
+
+
 

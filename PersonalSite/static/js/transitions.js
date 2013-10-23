@@ -160,6 +160,7 @@ function load_cards() {
 				250,
 				function() {
 					resize_cards();
+					check_stickies();
 					cascade($(this).next());
 				}
 			);
@@ -207,6 +208,7 @@ function cascade(elm) {
 		300,
 		function() {
 			resize_cards();	
+			check_stickies();
 			cascade(elm.next());
 		}
 	);

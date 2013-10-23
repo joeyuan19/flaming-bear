@@ -5,7 +5,25 @@
 		<!-- blog-css -->
 	</head>
 	<body>
-		<div class='blog-nav'>
+		<div class='nav'>
+			<div class='nav-table'>
+				<div class='nav-table-col'>
+					<div class='nav-home-button'>
+					</div>
+				</div>
+				<div class='nav-table-col'>
+					<div class='nav-search-container'>
+						<form id='blog-search-form' class='search-bar' action="/blog/search-results/" method="GET">
+							<input type="text" name="search" class="search-bar" placeholder="Search...">
+						</form>
+					</div>
+				</div>
+				<div class='nav-table-col'>
+					<div class='nav-btn'>
+						<button>Archive</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id='content'>
 		{% block 'content' %}
