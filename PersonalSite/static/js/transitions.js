@@ -144,32 +144,22 @@ function clear_section() {
 	$('#page-content').empty();
 }
 function load_cards() {
-	$('.sticky').each(function() {$(this).css('position','relative');});
-	$('.sticky').each(function() {$(this).css('display','none');});
-	$('.sticky').each(function() {$(this).css('opacity',0);});
-	$('#page-content .item-bin > .section-card:first-child').each(
-		function() {
-			$(this).css('display','none');
-			$(this).css('opacity',0);
-			$(this).css('height',0);
-			$(this).css('overflow','auto');
-			$(this).css('display','block');
-			$(this).animate(
-				{
+	$('#page-content .item-bin > .section-card:first-child').each(function(){
+		cascade($(this));
+	});
+	/*			{
 					'height': getInnerHeight($(this)),
 					'opacity':1
 				},
 				250,
 				function() {
-					resize_cards();
 					$('.sticky').each(function() {$(this).css('display','block');});
 					$('.sticky').animate({opacity:1});
-					check_stickies();
-					cascade($(this).next());
+					console.log($(this).length);
 				}
 			);
 		}
-	);
+	);*/
 }
 function debug(obj) {
 	$('#debug').empty();
@@ -199,6 +189,8 @@ function recursiveSetHeightWidth(obj,width,height) {
 	}
 }
 function cascade(elm) {
+	resize_cards();
+	check_stickies();
 	elm.css('display','none');
 	elm.css('opacity',0);
 	elm.css('height',0);
@@ -211,8 +203,6 @@ function cascade(elm) {
 		},
 		300,
 		function() {
-			resize_cards();	
-			check_stickies();
 			cascade(elm.next());
 		}
 	);

@@ -23,10 +23,7 @@ function load_section_callback(json) {
 }
 
 function load_page_to_section(destination_id,origin_id) {
-	console.log(origin_id + " " + ($('#'+origin_id+'-storage *').length <= 0));
-	if ($('#'+origin_id+'-storage *').length <= 0) {
-		load_section(origin_id);
-	}
+	console.log(origin_id + " " + $('#'+origin_id+'-storage *').length);
 	$('#'+destination_id).html($("#"+origin_id+"-storage").html());
 }
 

@@ -53,6 +53,7 @@ $(".contact").click(
 			$('*').removeClass('active');
 			$('#nav-contact').addClass('active');
 			clear_section();
+			console.log("load");
 			load_page_to_section('page-content','contact');
 			load_cards();
 		}
@@ -68,7 +69,6 @@ function sneaky_callback(json) {
 		href: json.cargo,
 	});
 	elm.click();
-	elm.remove();
 };
 
 $(window).mousemove(adjustBackground);
