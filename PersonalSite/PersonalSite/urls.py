@@ -20,7 +20,7 @@ urlpatterns = patterns('',
 	# blog
 	url(r'^blog/',include('blog.urls')),
 
-	url(r'','PersonalSite.views.homepage', name='homepage'),
+	url(r'^$','PersonalSite.views.homepage', name='homepage'),
 
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

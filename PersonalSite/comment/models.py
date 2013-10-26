@@ -9,5 +9,13 @@ class Comment(models.Model):
 	rating_down = models.IntegerField(verbose_name='down rating')
 	date        = models.DateField(auto_now_add=True,verbose_name='date comment was made')
 
+	def __unicode__(self):
+		return username + " " + date
+	
+	def __string__(self):
+		return self.__unicode__()
+
+	def rating_to_string(self):
+		return int(100*float(rating_up)/(rating_up+rating_down) )//1 + "%"
 
 

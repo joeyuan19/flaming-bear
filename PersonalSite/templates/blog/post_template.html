@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<div class='post'>
+	<div class='post-title'>{{title}}</div>
+	<div class='post-content'>{{content|safe}}</div>
+	<div class='post-info'>
+		{{date}} | {{rating}}
+	</div>
+	<div class='post-comments'>
+		{% for comment in comments %}
+			<div class='comment-title'>{{comment.content}}</div>
+			<div class='comment-info'>{{comment.username}} | {{comment.date}} | {{comment.rating}}</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+

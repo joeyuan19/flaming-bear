@@ -1,4 +1,4 @@
-function check_stickies() {
+function check_stickies() {	
 	$('.sticky').each(
 		function() {
 			var offset = $(this).offset();

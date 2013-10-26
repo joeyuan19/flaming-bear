@@ -145,6 +145,8 @@ function clear_section() {
 }
 function load_cards() {
 	$('.sticky').each(function() {$(this).css('position','relative');});
+	$('.sticky').each(function() {$(this).css('display','none');});
+	$('.sticky').each(function() {$(this).css('opacity',0);});
 	$('#page-content .item-bin > .section-card:first-child').each(
 		function() {
 			$(this).css('display','none');
@@ -160,6 +162,8 @@ function load_cards() {
 				250,
 				function() {
 					resize_cards();
+					$('.sticky').each(function() {$(this).css('display','block');});
+					$('.sticky').animate({opacity:1});
 					check_stickies();
 					cascade($(this).next());
 				}
