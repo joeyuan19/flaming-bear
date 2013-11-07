@@ -64,7 +64,6 @@ function thisFunctionWillEmailMe() {
 }
 
 function thisFunctionWillEmailMe_callback(json) {
-	alert(json.cargo);
 	if (json.call_status) {
 		window.location = json.cargo;
 	}
