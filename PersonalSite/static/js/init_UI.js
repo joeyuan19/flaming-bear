@@ -60,7 +60,7 @@ $(".contact").click(
 );
 
 function thisFunctionWillEmailMe() {
-	return Dajaxice.content.sneaky(sneaky_callback);
+	return Dajaxice.content.sneaky(thisFunctionWillEmailMe_callback);
 }
 
 function thisFunctionWillEmailMe_callback(json) {
