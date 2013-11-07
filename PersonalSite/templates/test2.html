@@ -1,0 +1,16 @@
+<html>
+	<head></head>
+	<body>
+		<h1>TEST</h1>
+		<div>
+			{{ request.build_absolute_uri }}
+			{% if 'test' in request.build_absolute_uri %}
+				hello
+			{% else %}
+				bye
+			{% endif %}
+		</div>
+	</body>
+</html>
+
+

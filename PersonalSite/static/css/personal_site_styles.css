@@ -140,8 +140,8 @@ a:hover {
 .section-card * {
 	overflow: hidden;
 }
-.bin {
-	overflow:hidden;
+.item-bin {
+	overflow: visible;
 }
 .section-title {
 	font-family: 'optima','candara','arial', sans-serif;

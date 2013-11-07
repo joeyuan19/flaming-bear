@@ -131,6 +131,8 @@ function resize_all() {
 	$('.nav-table-row').css('height','48%');
 	$('.nav-table-row').css('width','100%');
 	center_vert_items();
+	$('.menu-link').css('font-size',.05*$(window).height() + 'px');
+	$('.name-link').css('font-size',.1*$(window).height() + 'px');
 	$('.nav-item').each(function() {scaleFont($(this).parent());});
 }
 function scaleFont(elm) {
@@ -147,19 +149,6 @@ function load_cards() {
 	$('#page-content .item-bin > .section-card:first-child').each(function(){
 		cascade($(this));
 	});
-	/*			{
-					'height': getInnerHeight($(this)),
-					'opacity':1
-				},
-				250,
-				function() {
-					$('.sticky').each(function() {$(this).css('display','block');});
-					$('.sticky').animate({opacity:1});
-					console.log($(this).length);
-				}
-			);
-		}
-	);*/
 }
 function debug(obj) {
 	$('#debug').empty();
