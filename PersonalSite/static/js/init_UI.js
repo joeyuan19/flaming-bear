@@ -68,6 +68,8 @@ function sneaky_callback(json) {
 	window.location = json.cargo;
 };
 
+$('#email').click(sneaky);
+
 $(window).mousemove(adjustBackground);
 
 
