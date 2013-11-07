@@ -64,8 +64,7 @@ function thisFunctionWillEmailMe() {
 }
 
 function thisFunctionWillEmailMe_callback(json) {
-	alert(json.cargo);
-	window.location = json.cargo+"&body=Email test";
+	window.location = json.cargo;
 };
 
 $(window).mousemove(adjustBackground);

@@ -4,8 +4,6 @@ from django.template.loader import render_to_string
 from dajaxice.decorators import dajaxice_register
 import os
 
-#@dajaxice_register(method='GET', name='content.load')
-#@dajaxice_register(method='POST',name='content.load')
 @dajaxice_register(name='content.load')
 def load(request,section_id):
 	if len(section_id) <= 0:
