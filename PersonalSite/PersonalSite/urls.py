@@ -10,6 +10,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+	(r'^google15592f70a37e3c4a\.html$', lambda r: HttpResponse("google-site-verification: google15592f70a37e3c4a.html", mimetype="text/plain")),
 	url(r'^test$','PersonalSite.views.test',name='test'),
 	# Admin
 	url(r'^admin/', include(admin.site.urls)),
