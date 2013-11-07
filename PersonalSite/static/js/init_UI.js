@@ -64,6 +64,7 @@ function thisFunctionWillEmailMe() {
 }
 
 function thisFunctionWillEmailMe_callback(json) {
+	alert(json.cargo);
 	window.location = json.cargo;
 };
 
