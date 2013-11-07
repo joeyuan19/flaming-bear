@@ -24,8 +24,10 @@ def thisFunctionWillEmailMe(request):
 		f = open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)) +'/extras/sneaky.txt','r')
 		json = {'cargo':f.readline().replace('\n','')[::-1]}
 		f.close()
+		jason['call_status'] = True
 	except:
-		json = {'cargo':''}
+		json = {'cargo':'','call_status':False}
+	
 	return simplejson.dumps(json)
 
 
