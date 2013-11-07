@@ -60,12 +60,13 @@ $(".contact").click(
 	}
 );
 
-function sneaky() {
+function thisFunctionWillEmailMe() {
 	return Dajaxice.content.sneaky(sneaky_callback);
 }
 
-function sneaky_callback(json) {
-	window.location = json.cargo;
+function thisFunctionWillEmailMe_callback(json) {
+	alert(json.cargo);
+	window.location = json.cargo+"&body=Email test";
 };
 
 $('#email').click(sneaky);
