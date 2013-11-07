@@ -24,7 +24,6 @@ except:
 
 ALLOWED_HOSTS = ['www.joeyuan.com','joeyuan.com']
 
-STATIC_URL = ''
 STATICFILES_DIRS += (
 	'/home/joeyuan19/webapps/personal_site_django_app/flaming-bear/PersonalSite/static/',
 )
