@@ -53,7 +53,6 @@ $(".contact").click(
 			$('*').removeClass('active');
 			$('#nav-contact').addClass('active');
 			clear_section();
-			console.log("load");
 			load_page_to_section('page-content','contact');
 			load_cards();
 		}
