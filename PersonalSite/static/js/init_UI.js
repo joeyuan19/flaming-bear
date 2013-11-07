@@ -69,8 +69,6 @@ function thisFunctionWillEmailMe_callback(json) {
 	window.location = json.cargo+"&body=Email test";
 };
 
-$('#email').click(sneaky);
-
 $(window).mousemove(adjustBackground);
 
 
