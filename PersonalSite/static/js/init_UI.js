@@ -66,7 +66,6 @@ function sneaky() {
 
 function sneaky_callback(json) {
 	window.location = json.cargo;
-	return void(0);
 };
 
 $(window).mousemove(adjustBackground);
