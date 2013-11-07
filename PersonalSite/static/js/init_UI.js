@@ -61,14 +61,11 @@ $(".contact").click(
 );
 
 function sneaky() {
-	Dajaxice.content.sneaky(sneaky_callback);
+	return Dajaxice.content.sneaky(sneaky_callback);
 }
 
 function sneaky_callback(json) {
-	var elm = jQuery('<a/>', {
-		href: json.cargo,
-	});
-	elm.click();
+	window.location = json.cargo;
 };
 
 $(window).mousemove(adjustBackground);

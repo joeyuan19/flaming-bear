@@ -6,9 +6,9 @@
 
 
 
-window.onload=function () {
+$(window).ready(function () {
 	init();
-};
+});
 $(window).resize(function() {
 	resize_all();
 });
@@ -25,8 +25,6 @@ function init() {
 	$("#page").css('height',min_height);
 	$(".vert-centered").css('opacity',0);
 	$("#content").css('display','block');
-	$('.menu-link').css('font-size',.05*$(window).height() + 'px');
-	$('.name-link').css('font-size',.1*$(window).height() + 'px');
 	grow_from_center("bg-img",0,0,width,min_height,500,
 		function() {
 			center();
@@ -48,8 +46,8 @@ function init() {
 					'opacity':1
 				},500);
 			});
-			$('.menu-link').each(function() {scaleFont($(this));});
-			$('.name-link').each(function() {scaleFont($(this));});
+	$('.menu-link').css('font-size',.05*$(window).height() + 'px');
+	$('.name-link').css('font-size',.1*$(window).height() + 'px');
 		}
 	);
 }

@@ -32,6 +32,10 @@ a:hover {
 .left {
 	float: left;
 }
+.pad {
+	padding-left: 5px;
+}
+
 
 /* front menu */
 .menu-section {
@@ -133,7 +137,7 @@ a:hover {
 /* content display cards */
 .section-card {
 	width: 100%;
-	font-family: 'courier new', sans-serif;
+	font-family: 'optima','DejaVu Sans', 'courier new', sans-serif;
 	color: #FFFFFF;
 	display: none;
 }
@@ -144,7 +148,7 @@ a:hover {
 	overflow: visible;
 }
 .section-title {
-	font-family: 'Helvetica Neue','optima','candara','arial', sans-serif;
+	font-family: 'optima','candara','arial', sans-serif;
 }
 .card-footer {
 	width: 100%;
