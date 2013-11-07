@@ -1,26 +1,7 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% load dajaxice_templatetags %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title> -- Joe Yuan -- </title>
-		<meta name="viewport" content="width=device-width initial-scale=1.0">
-		<meta name="description" content="Personal Site for Joseph Yuan, a physicist, mathematician, and computer scientist, or more genrally just a curious problem solver.">
-		<meta name="keywords" content="Joe, Joseph, Yuan, joe yuan, Physics, Computer, Science, mathematics, programming, problem solving, growth hacking, data science, scientist">
-		<link rel="shortcut icon" href="{% static "img/favicon.ico" %}" />
-		<!-- CSS Styles  -->
-		<link href="{% static "css/personal_site_styles.css" %}" rel="stylesheet" media="all" />
-		<!-- JS Scripts -->
-		<script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
-		{% dajaxice_js_import %}
-		<script type="text/javascript" src="{% static "js/page_loader.js" %}"></script>	
-		<script type="text/javascript" src="{% static "js/bg-perspective.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/transitions.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/init.js" %}"></script>
-		<script type="text/javascript" src="{% static "js/sticky-headers.js" %}"></script>
-	</head>
-	<body>
-		<div id="bg-img">
+{% block 'content' %}
+	<div id="bg-img">
 			<img id="bottom" class="layer center" src="{% static "img/background/bottom.png" %}"/>
 			<img id="middle" class="layer center" src="{% static "img/background/middle.png" %}"/>
 			<img id="top" class="layer center" src="{% static "img/background/top.png" %}"/>
@@ -97,10 +78,8 @@
 		</div>
 		<!-- Initialize buttons -->
 		<script type="text/javascript" src="{% static "js/init_UI.js" %}"></script>
-	</body>
-</html>
 
 
-
+{% endblock %}
 
 
