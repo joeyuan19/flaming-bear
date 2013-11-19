@@ -69,6 +69,16 @@ function thisFunctionWillEmailMe_callback(json) {
 	}
 };
 
+function thisFunctionWillCallMe() {
+	return Dajaxice.content.thisFunctionWillCallMe(thisFunctionWillCallMe_callback);
+}
+
+function thisFunctionWillCallMe_callback(json) {
+	if (json.call_status) {
+		window.location = json.cargo;
+	}
+};
+
 $(window).mousemove(adjustBackground);
 
 

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from dajaxice.core import dajaxice_functions
 
 

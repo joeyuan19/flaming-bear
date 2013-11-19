@@ -9,7 +9,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
 	('Joe Yuan','joe.yuan19@gmail.com'),
 )
 
@@ -87,7 +86,15 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '$zr@-0lstgzehu)k(-pbg7wz=mv8%n%o7+j_@h&amp;-yy&amp;sx)pyau'
+f = None
+try:
+	f = open(PROJECT_ROOT+'/extras/KEY.txt','r')
+	SECRET_KEY = f.readline().strip()
+except:
+	SECRET_KEY = '$zr@-0lstgzehu)k(-pbg7wz=mv8%n%o7+j_@h&amp;-yy&amp;sx)pyau'
+finally:
+	if f:
+		f.close()
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -103,7 +110,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'PersonalSite.urls'
@@ -115,7 +122,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	PROJECT_ROOT+'/templates/'
+	PROJECT_ROOT+'/templates/',
 )
 
 INSTALLED_APPS = (
@@ -174,6 +181,8 @@ LOGGING = {
         },
     }
 }
+
+BACKEND = "django.core.cache.backends.memcached.MemcachedCache"
 
 STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder",
                        "django.contrib.staticfiles.finders.AppDirectoriesFinder",

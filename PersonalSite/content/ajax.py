@@ -20,6 +20,7 @@ def load(request,section_id):
 
 @dajaxice_register(name='content.thisFunctionWillEmailMe')
 def thisFunctionWillEmailMe(request):
+	f = None
 	try:
 		f = open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)) +'/extras/sneaky.txt','r')
 		json = {'cargo':f.readline().replace('\n','')[::-1]}
@@ -27,7 +28,29 @@ def thisFunctionWillEmailMe(request):
 		json['call_status'] = True
 	except:
 		json = {'cargo':'','call_status':False}
+	finally:
+		if f:
+			f.close()
 	
 	return simplejson.dumps(json)
+
+
+@dajaxice_register(name='content.thisFunctionWillCallMe')
+def thisFunctionWillCallMe(request):
+	f = None
+	try:
+		f = open(os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)) +'/extras/sneaky_tel.txt','r')
+		json = {'cargo':f.readline().replace('\n','')[::-1]}
+		f.close()
+		json['call_status'] = True
+	except:
+		json = {'cargo':'','call_status':False}
+	finally:
+		if f:
+			f.close()
+
+	return simplejson.dumps(json)
+
+
 
 

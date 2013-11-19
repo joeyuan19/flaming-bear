@@ -1,6 +1,7 @@
 from development_settings import *
 
 password = {}
+f = None
 try:
 	f = open(PROJECT_ROOT+'/extras/password.csv','r')
 	for line in f:
@@ -9,7 +10,9 @@ try:
 			password[entry[0]]=entry[1].replace('\n','')
 except:
 	pass
-
+finally:
+	if f:
+		f.close()
 
 DEBUG = TEMPLATE_DEBUG = False
 

@@ -209,6 +209,10 @@ a:hover {
 
 /* contact page */
 .contact-icon {
+	width: 100px;
+	height: 100px;
+}
+.contact-icon {
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	-o-filter: grayscale(100%);
@@ -216,8 +220,6 @@ a:hover {
 	filter: grayscale(100%); 
 }
 .contact-icon:hover {
-	width: 100px;
-	height: 100px;
 	-webkit-filter: grayscale(0%);
 	-moz-filter: grayscale(0%);
 	-o-filter: grayscale(0%);
