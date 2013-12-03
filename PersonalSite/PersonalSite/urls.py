@@ -21,6 +21,9 @@ urlpatterns = patterns('',
 	# blog
 	url(r'^blog/',include('blog.urls')),
 
+	# Sudoku
+	url(r'^sudoku/',include('sudoku.urls')),
+	
 	url(r'^$','PersonalSite.views.homepage', name='homepage'),
 
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
