@@ -22,7 +22,6 @@ def test_view(request):
 
 @dajaxice_register(name='sudoku.solve')
 def solve(request,puzzle=None):
-	print puzzle
 	time = None
 	if not puzzle:
 		solved = False
