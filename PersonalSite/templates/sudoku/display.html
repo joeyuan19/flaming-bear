@@ -53,9 +53,9 @@
 				<div>solved: [[solved]] solving: [[solving]] </div>
 				<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span></div>
 				<table style='float: left;'>
-					<tr ng-repeat='row in puzzle'>
-						<td ng-repeat='cell in row'>
-							<input type='text' ng-model='cell.value' class='cell solved-[[cell.solved]]' maxlength='1' size='1' />
+					<tr ng-repeat='(letter,row) in puzzle'>
+						<td ng-repeat='(index,cell) in row'>
+							<input type='text' ng-model='cell.value' class='cell solved-[[cell.solved]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
 						</td>
 					</tr>
 				</table>

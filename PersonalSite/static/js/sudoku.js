@@ -112,6 +112,9 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 			}
 		}	
 	}
+	$scope.clearCellState = function(letterIndex) {
+		$scope.setSolvedState($scope.letter.indexOf(letterIndex[0]),$scope.index.indexOf(letterIndex[1]),false);
+	}
 });
 
 
