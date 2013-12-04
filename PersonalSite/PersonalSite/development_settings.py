@@ -135,6 +135,7 @@ INSTALLED_APPS = (
     'dajaxice',
 	'content',
 	'blog',
+	'sudoku',
 	'comment',
 	'south',
 	'django_extensions',

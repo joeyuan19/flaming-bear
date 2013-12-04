@@ -1,6 +1,5 @@
 from dajaxice.decorators import dajaxice_register
 from django.utils import simplejson
-
 import sudoku.sudoku3 as s
 
 @dajaxice_register(name='sudoku.solve')

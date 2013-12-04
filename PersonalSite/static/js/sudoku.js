@@ -22,15 +22,15 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 	$scope.solved = false;
 	$scope.solving = false;
 	$scope.puzzle = {
-		'A':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'B':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'C':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'D':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'E':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'F':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'G':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'H':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
-		'I':{'1':{value:''},'2':{value:''},'3':{value:''},'4':{value:''},'5':{value:''},'6':{value:''},'7':{value:''},'8':{value:''},'9':{value:''}},
+		'A':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'B':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'C':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'D':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'E':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'F':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'G':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'H':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
+		'I':{'1':{value:'',solved:false},'2':{value:'',solved:false},'3':{value:'',solved:false},'4':{value:'',solved:false},'5':{value:'',solved:false},'6':{value:'',solved:false},'7':{value:'',solved:false},'8':{value:'',solved:false},'9':{value:'',solved:false}},
 	};
 	$scope.get = function(i,j) {
 		var val = $scope.puzzle[$scope.letter[i]][$scope.index[j]].value;
@@ -46,20 +46,30 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 		} else {
 			$scope.puzzle[$scope.letter[i]][$scope.index[j]].value = '';
 		}
-}
+	};
+	$scope.setSolvedState = function(i,j,state) {
+		$scope.puzzle[$scope.letter[i]][$scope.index[j]].solved = state;
+	};
 	$scope.solve = function() {
 		$scope.solving = true;
-		var puzzle = new Array(9), i, j;
+		var puzzle = new Array(9), i, j, val;
 		for (i = 0; i < 9; i++) {
 			puzzle[i] = new Array(9);
 			for (j = 0; j < 9; j++) {
-				puzzle[i][j] = $scope.get(i,j);
+				val = $scope.get(i,j);
+				puzzle[i][j] = val;
+				if (val == 0) {
+					$scope.setSolvedState(i,j,true);
+				}
 			}
 		}
 		try {
 			return Dajaxice.sudoku.solve($scope.solve_cb,{'puzzle':puzzle});
 		} catch (e) {
+			console.log("Dajaxice Call Failed");
+			$scope.clearSolved(state);
 			$scope.solving = false;
+			return;
 		}
 	};
 	$scope.solve_cb = function(json) {
@@ -91,8 +101,17 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 				$scope.set(i,j,'');
 			}
 		} 
+		$scope.clearSolvedState();
 		$scope.solved = false;
 	};
+	$scope.clearSolvedState = function() {
+		var i, j;
+		for (i = 0; i < 9; i++) {
+			for (j = 0; j < 9; j++) {
+				$scope.setSolvedState(i,j,false);
+			}
+		}	
+	}
 });
 
 
