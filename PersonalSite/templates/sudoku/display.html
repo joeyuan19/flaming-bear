@@ -6,38 +6,11 @@
 		<script src="{% static "js/angular.min.js" %}"></script>
 		{% dajaxice_js_import %}
 		<script type="text/javascript" src="{% static "js/sudoku.js" %}"></script>
-		<style>
-			input {
-				text-align: center;
-			}
-			.solved {
-				color: red;
-			}
-			.cell {
-				width: 50px;
-				height: 50px;
-				font-size: 150%;
-				float: left;
-			}
-			.print {
-				color: blue;
-			}
-			.solved-true {
-				color: red;
-			}
-			.ctrl-btn {
-				width: 255px;
-				height: 50px;
-				font-size: 200%;
-			}
-			.info {
-				font-size: 150%;
-			}
-		</style>
+		<link href="{% static "css/sudoku.css" %}" rel="stylesheet" media="all" />
 	</head>	
 	<body>
 		<div>
-			<h1>Sudoku Solver</h1>
+			<h1 class='title'>Sudoku Solver</h1>
 			<div class='info'>
 				<p>
 					Welcome! This Sudoku Sovler works in a pretty straight forward way, input the puzzle you are working on and click solve to compute a solution.
@@ -50,26 +23,18 @@
 				</p>
 			</div>
 			<div ng-controller="Puzzle">
-				<div>solved: [[solved]] solving: [[solving]] </div>
-				<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span></div>
-				<table style='float: left;'>
+				<table>
 					<tr ng-repeat='(letter,row) in puzzle'>
 						<td ng-repeat='(index,cell) in row'>
-							<input type='text' ng-model='cell.value' class='cell solved-[[cell.solved]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
+							<input type='text' ng-model='cell.value' class='cell row-[[letter]] col-[[index]] solved-[[cell.solved]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
 						</td>
 					</tr>
 				</table>
-				<table style='float: right;'>
-					<tr ng-repeat='row in puzzle'>
-						<td ng-repeat='cell in row'>
-							[[cell.value]]
-						</td>
-					</tr>
-				</table>
-				<div style='clear: both;'>
+				<div class='btn-container'>
 					<button class='ctrl-btn' ng-click='solve()'>Solve</button>
 					<button class='ctrl-btn' ng-click='clear()'>Clear</button>
 				</div>
+				<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span> seconds</div>
 			</div>
 		</div>
 	</body>
