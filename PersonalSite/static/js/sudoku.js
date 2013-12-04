@@ -56,7 +56,11 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 				puzzle[i][j] = $scope.get(i,j);
 			}
 		}
-		return Dajaxice.sudoku.solve($scope.solve_cb,{'puzzle':puzzle});
+		try {
+			return Dajaxice.sudoku.solve($scope.solve_cb,{'puzzle':puzzle});
+		} catch (e) {
+			$scope.solving = false;
+		}
 	};
 	$scope.solve_cb = function(json) {
 		if (!json.solved) {
