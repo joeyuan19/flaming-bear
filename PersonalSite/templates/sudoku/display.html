@@ -47,6 +47,7 @@
 				</p>
 			</div>
 			<div ng-controller="Puzzle">
+				<div>solved: [[solved]] solving: [[solving]] </div>
 				<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span></div>
 				<table style='float: left;'>
 					<tr ng-repeat='row in puzzle'>
