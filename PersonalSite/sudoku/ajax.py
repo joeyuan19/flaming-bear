@@ -4,10 +4,9 @@ import sudoku.sudoku3 as s
 import re
 
 def smart_stringify(time):
-	return "%.8f" % time
+	time = "%.8f" % time
 	time = str(time)
-	time = re.sub(r'0+$', '', time)
-	time = re.sub(r'([\d]{4})\d+(e-\d+)$',r'\g<1>\g<2>',time)
+	time = re.sub(r'([\d]{1})\g<1>*$', '', time)
 	return time
 
 
