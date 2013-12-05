@@ -125,7 +125,8 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 		$scope.clearErrorState();
 	};
 	$scope.validatePuzzle = function(puzzle) {
-		var i, j, k;
+		$scope.clearErrorState();
+		var i, j, k, I, J;
 		for (i = 0; i < puzzle.length; i++) {
 			for (j = 0; j < puzzle[i].length; j++) {
 				// check row
@@ -143,6 +144,17 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 						$scope.setErrorState(i,j,true);
 						$scope.setErrorState(k,j,true);
 						$scope.errorMessage = 'Repeated ' + puzzle[i][j] + ' in column ' + (k+1);
+						return false;
+					}
+				}
+				// check box
+				for (k = (i%3)*3 + j%3+1; k < 9; k++) {
+					I = i - (i%3) + parseInt(k/3);
+					J = j - (j%3) + k%3;
+					if ( !(I == i && J == j) && puzzle[i][j] != 0 && puzzle[i][j] == puzzle[I][J] ) {
+						$scope.setErrorState(i,j,true);
+						$scope.setErrorState(I,J,true);
+						$scope.errorMessage = 'Repeated ' + puzzle[i][j] + ' in the ' + $scope.getBoxName(i,j) + ' box';
 						return false;
 					}
 				}
@@ -182,6 +194,32 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 				$scope.setSolvedState(i,j,false);
 			}
 		}
+	};
+	$scope.getBoxName = function(i,j) {
+		var name = "";
+		switch (i) {
+			case 0:case 1:case 2:
+				name += "upper";
+				break;
+			case 3:case 4:case 5:
+				name += "middle";
+				break;
+			case 6:case 7:case 8:
+				name += "bottom";
+		}
+		name += " ";
+		switch (j) {
+			case 0:case 1:case 2:
+				name += "left";
+				break;
+			case 3:case 4:case 5:
+				name += "center";
+				break;
+			case 6:case 7:case 8:
+				name += "right";
+		}
+		name = (name == 'middle center' ? 'center' : name);
+		return name;	
 	};
 	$scope.clearCellState = function(letterIndex) {
 		$scope.setSolvedState($scope.letter.indexOf(letterIndex[0]),$scope.index.indexOf(letterIndex[1]),false);
