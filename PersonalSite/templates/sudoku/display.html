@@ -1,45 +1,60 @@
-<!DOCTYPE html>
+<html>
 {% load staticfiles %}
 {% load dajaxice_templatetags %}
-<html ng-app='sudokuApp'>
-	<head>
-		<script src="{% static "js/angular.min.js" %}"></script>
-		{% dajaxice_js_import %}
-		<script type="text/javascript" src="{% static "js/sudoku.js" %}"></script>
-		<link href="{% static "css/sudoku.css" %}" rel="stylesheet" media="all" />
-	</head>	
-	<body>
-		<div>
-			<h1 class='title'>Sudoku Solver</h1>
-			<div class='info'>
-				<p>
-					Welcome! This Sudoku Sovler works in a pretty straight forward way, input the puzzle you are working on and click solve to compute a solution.
-				</p>
-				<p>
-					The solver assumes any entry that is not a number between 1-9 is a blank square.
-				</p>
-				<p>
-					The solver is implemented in Python, which does all the heavy lifting on the server, and returns the solved puzzle to the server.  This is a work in progress so any suggestions, comments, etc., are welcome. 	
-				</p>
-			</div>
-			<div ng-controller="Puzzle">
-				<table>
+
+{% block 'header_scripts' %}
+	<script src="{% static "js/angular.min.js" %}"></script>
+	{% dajaxice_js_import %}
+	<script type="text/javascript" src="{% static "js/sudoku.js" %}"></script>
+{% endblock %}
+
+{% block 'header_styles' %}
+	<link href="{% static "css/sudoku.css" %}" rel="stylesheet" media="all" />
+{% endblock %}
+
+{% block 'content' %}
+	<div ng-app='sudokuApp'>
+		<h1 class='title'>Sudoku Solver</h1>
+		<div class='info'>
+			<p>
+				Welcome! This Sudoku Sovler works in a pretty straight forward way, input the puzzle you are working on and click solve to compute a solution.
+			</p>
+			<p>
+				The solver assumes any entry that is not a number between 1-9 is a blank square.
+			</p>
+			<p>
+				The solver is implemented in Python, which does all the heavy lifting on the server, and returns the solved puzzle to the server.  This is a work in progress so any suggestions, comments, etc., are welcome. 	
+			</p>
+		</div>
+		<div ng-controller="Puzzle">
+			<div>
+				<table style='float: left;'>
 					<tr ng-repeat='(letter,row) in puzzle'>
 						<td ng-repeat='(index,cell) in row'>
-							<input type='text' ng-model='cell.value' class='cell row-[[letter]] col-[[index]] solved-[[cell.solved]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
+							<input type='text' ng-model='cell.value' class='cell row-[[letter]] col-[[index]] solved-[[cell.solved]] error-[[cell.error]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
 						</td>
 					</tr>
 				</table>
-				<div class='btn-container'>
-					<button class='ctrl-btn' ng-click='solve()'>Solve</button>
-					<button class='ctrl-btn' ng-click='clear()'>Clear</button>
-				</div>
-				<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span> seconds</div>
+				<table style='float: left;'>
+					<tr>
+						<td>
+							<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span> seconds</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class='error-info' ng-show='error'>Error Found: [[errorMessage]]</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class='btn-container'>
+				<button class='ctrl-btn' ng-click='solve()'>Solve</button>
+				<button class='ctrl-btn' ng-click='clear()'>Clear</button>
 			</div>
 		</div>
-	</body>
-</html>
-
+	</div>
+{% endblock %}
 
 
 

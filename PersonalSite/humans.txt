@@ -1,0 +1,9 @@
+This site was created by Joseph Yuan.
+
+
+
+
+
+
+
+Also to everyone who has contributed to the libraries used within this site: Django, jQuery, Javascript, HTML5, CSS3, Python, etc., a big Thank You!
