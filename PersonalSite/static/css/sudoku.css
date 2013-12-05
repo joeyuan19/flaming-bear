@@ -35,8 +35,12 @@ input {
 .info {
 	font-size: 150%;
 }
-.error-info {
+.error-info-true {
 	color: red;
+	font-size: 200%;
+}
+.error-info-false {
+	color: green;
 	font-size: 200%;
 }
 

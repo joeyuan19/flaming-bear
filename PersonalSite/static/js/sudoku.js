@@ -55,10 +55,7 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 	$scope.setErrorState = function(i,j,state) {
 		$scope.puzzle[$scope.letter[i]][$scope.index[j]].error = state;
 	};
-	$scope.solve = function() {
-		if ($scope.solving) {return;}
-		else {$scope.clearSolvedState();}
-		$scope.solving = true;
+	$scope.getPuzzleArray = function() {
 		var puzzle = new Array(9), i, j, val;
 		for (i = 0; i < 9; i++) {
 			puzzle[i] = new Array(9);
@@ -70,13 +67,20 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 				}
 			}
 		}
+		return puzzle;
+	};
+	$scope.solve = function() {
+		if ($scope.solving) {return;}
+		else {$scope.clearSolvedState();}
+		$scope.solving = true;
+		var puzzle = $scope.getPuzzleArray();
 		if (!$scope.validatePuzzle(puzzle)) {
 			console.log('found error');
 			$scope.solving = false;
 			$scope.error = true;
 			return;
 		} else {
-			$scope.error = false;
+			$scope.clearError();
 		}
 		try {
 			return Dajaxice.sudoku.solve($scope.solve_cb,{'puzzle':puzzle});
@@ -98,6 +102,8 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 		$scope.time = json.time;
 		$scope.update(json.puzzle);
 		$scope.solving = false;
+		$scope.error = false;
+		$scope.clearErrorState();
 		$scope.$apply();
 	};
 	$scope.update = function(a) {
@@ -120,12 +126,11 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 	};
 	$scope.validatePuzzle = function(puzzle) {
 		var i, j, k;
-		// check for a row error
 		for (i = 0; i < puzzle.length; i++) {
 			for (j = 0; j < puzzle[i].length; j++) {
 				// check row
 				for (k = j+1; k < 9; k++) {
-					if ( puzzle[i][j] != 0 && puzzle[i][j] == puzzle[i][k] ) {
+					if ( j != k && puzzle[i][j] != 0 && puzzle[i][j] == puzzle[i][k] ) {
 						$scope.setErrorState(i,j,true);
 						$scope.setErrorState(i,k,true);
 						$scope.errorMessage = 'Repeated ' + puzzle[i][j] + ' in row ' + (i+1);
@@ -133,8 +138,8 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 					}
 				}
 				// check col
-				for (k = j+1; k < 9; k++) {
-					if ( puzzle[i][j] != 0 && puzzle[i][j] == puzzle[k][j] ) {
+				for (k = i+1; k < 9; k++) {
+					if ( i != k && puzzle[i][j] != 0 && puzzle[i][j] == puzzle[k][j] ) {
 						$scope.setErrorState(i,j,true);
 						$scope.setErrorState(k,j,true);
 						$scope.errorMessage = 'Repeated ' + puzzle[i][j] + ' in column ' + (k+1);
@@ -144,6 +149,14 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 			} 
 		}
 		return true;
+	};
+	$scope.check = function() {
+		var puzzle = $scope.getPuzzleArray();
+		$scope.error = !$scope.validatePuzzle(puzzle);
+		if (!$scope.error) {
+			$scope.clearError();
+			$scope.errorMessage = 'No error found!';
+		}
 	};
 	$scope.clear = function() {
 		var i, j;

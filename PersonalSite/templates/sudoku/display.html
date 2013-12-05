@@ -38,12 +38,12 @@
 				<table style='float: left;'>
 					<tr>
 						<td>
-							<div class='info' ng-show='solved'>Time taken: <span>[[time]]</span> seconds</div>
+							<div class='info' ng-show='solved'>Time taken: [[time]] seconds</div>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<div class='error-info' ng-show='error'>Error Found: [[errorMessage]]</div>
+							<div class='error-info-[[error]]'><span ng-show='error'>Error Found: </span>[[errorMessage]]</div>
 						</td>
 					</tr>
 				</table>
@@ -51,6 +51,7 @@
 			<div class='btn-container'>
 				<button class='ctrl-btn' ng-click='solve()'>Solve</button>
 				<button class='ctrl-btn' ng-click='clear()'>Clear</button>
+				<button class='ctrl-btn' ng-click='check()'>Check</button>
 			</div>
 		</div>
 	</div>
