@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+				border: 0px;
+				position: relative;
+			}
+			html, body{
+				width: 100%;
+				height: 100%;
+			}
+			img {
+				display: inline-block;
+				max-width: 100%;
+				max-height: 100%;
+				float: left;
+			}
+			span {
+				display: inline-block;
+			}
+			iframe {
+				width: 100%
+				height: 100%;
+			}
+			div {
+				width: 100%;
+				min-height:100%;
+				padding-bottom: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div><span><img src='{% static 'p/img0.png' %}'/></span></div>
+		<div><span>
+			<img src='{% static 'p/img1.png' %}'/>
+			<img src='{% static 'p/img2.png' %}'/>
+		</span></div>
+		<div><span><img src='{% static 'p/img3.png' %}'/></span></div>
+		<div><span>
+			<img src='{% static 'p/img4.png' %}'/>
+			<img src='{% static 'p/img5.png' %}'/>
+			<img src='{% static 'p/img6.png' %}'/>
+		</span></div>
+		<div><span><img src='{% static 'p/img9.png' %}'/></span></div>
+		<div><span><img src='{% static 'p/img7.png' %}'/></span></div>
+		<div><span><img src='{% static 'p/img8.png' %}'/></span></div>
+		<div>
+			<iframe width="1000" height="800" src="//www.youtube.com/embed/3kuHSYdtGps" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div>
+			<iframe width="1000" height="800" src="//www.youtube.com/embed/xGkQeVMqRqM" frameborder="0" allowfullscreen>
+			<object width="1000" height="800"><param name="movie" value="//www.youtube.com/v/xGkQeVMqRqM?hl=en_US&amp;version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="//www.youtube.com/v/xGkQeVMqRqM?hl=en_US&amp;version=3" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object></iframe>
+		</div>
+		<div><span><img src='{% static 'p/img15.png' %}'/></span></div>
+	</body>
+</html>
+
+

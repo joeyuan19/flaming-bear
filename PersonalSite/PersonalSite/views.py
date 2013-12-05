@@ -8,4 +8,7 @@ def homepage(request):
 def test(request):
 	return render(request,'test2.html')
 
+def presentation(request):
+	return render(request,'presentation.html')
+
 
