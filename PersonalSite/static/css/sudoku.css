@@ -9,7 +9,8 @@ input {
 	height: 50px;
 	font-size: 150%;
 	float: left;
-	box-shadow: 0px 0px 2px 0px #000;
+	border: 0px;
+	box-shadow: 0px 0px 5px 0px #444;
 }
 .cell:focus {
 	background: yellow;
@@ -46,15 +47,27 @@ input {
 
 
 .row-C {
-	border-bottom: 5px solid black;
+	border-bottom: 2px solid #006;
+}
+.row-D {
+	border-top: 2px solid #006;
 }
 .row-F {
-	border-bottom: 5px solid black;
+	border-bottom: 2px solid #006;
+}
+.row-G {
+	border-top: 2px solid #006;
 }
 .col-3 {
-	border-right: 5px solid black;
+	border-right: 2px solid #006;
+}
+.col-4 {
+	border-left: 2px solid #006;
 }
 .col-6 {
-	border-right: 5px solid black;
+	border-right: 2px solid #006;
+}
+.col-7 {
+	border-left: 2px solid #006;
 }
 
