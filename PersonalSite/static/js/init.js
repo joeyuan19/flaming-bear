@@ -6,14 +6,9 @@
 
 
 
-$(window).ready(function () {
-	init();
-});
-$(window).resize(function() {
-	resize_all();
-});
+window.addEventListener('load',init);
+window.addEventListener('resize',resize_all);
 function init() {
-	init_content();
 	var height = $(window).height();
 	var width  = $(window).width();
 	var min_side = (height > width ? width : height);

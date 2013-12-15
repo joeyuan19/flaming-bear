@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block 'header_scripts' %}
+		<script type="text/javascript" src="{% static "js/bg-perspective.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/page_loader.js" %}"></script>	
+		<script type="text/javascript" src="{% static "js/transitions.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/init.js" %}"></script>
+		<script type="text/javascript" src="{% static "js/sticky-headers.js" %}"></script>
+{% endblock %}
+
+
 {% block 'content' %}
 <div id="bg-img">
 	<img id="bottom" class="layer center" src="{% static "img/background/bottom.png" %}"/>
@@ -13,7 +22,7 @@
 <div id="content">
 	<div id="page" class="page" style="display: none;">
 		<div id="page-nav" class="nav-table" style="display: none;">
-			<img id="page-nav-bg" class='backdrop-image' src='{% static "img/backdrops/nav-bar-bg.png" %}'>
+			<img id="page-nav-bg" class='backdrop-image' src='{% static "img/backdrops/nav-bar-bg.jpg" %}'>
 			<div class="nav-table-col left">
 				<div id="home-btn" class="nav-item nav-home home">Joe Yuan</div>
 			</div>
@@ -72,10 +81,18 @@
 </div><!-- /content -->
 <!-- Content Pages -->
 <div id="content-storage" style="display: none;">
-	<div id="about-storage"></div>
-	<div id="resume-storage"></div>
-	<div id="projects-storage"></div>
-	<div id="contact-storage"></div>
+	<div id="about-storage">
+		{% include 'content/about.html' %}
+	</div>
+	<div id="resume-storage">
+		{% include 'content/resume.html' %}
+	</div>
+	<div id="projects-storage">
+		{% include 'content/projects.html' %}
+	</div>
+	<div id="contact-storage">
+		{% include 'content/contact.html' %}
+	</div>
 </div>
 <!-- Initialize buttons -->
 <script type="text/javascript" src="{% static "js/init_UI.js" %}"></script>

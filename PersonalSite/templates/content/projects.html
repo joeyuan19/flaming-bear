@@ -17,7 +17,7 @@
 <div class='item-bin'>
 	<div class='section-card section-title sticky-placeholder'>
 		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.png" %}">
+			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
 				<h2>PHYSICS SIMULATIONS</h2>
 			</img>
 		</div>
@@ -41,7 +41,7 @@
 <div class='item-bin'>
 	<div class='section-card section-title sticky-placeholder'>
 		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.png" %}">
+			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
 				<h2>PUZZLES</h2>
 			</img>
 		</div>
@@ -52,21 +52,24 @@
 		</div>
 		<div class='card-desc'>
 			<div class='preview-image-container left'>
-				<img class='preview-image' src="{% static "img/project_previews/sudoku.png" %}"></img>
-				</img>
+				<a href='{% url 'sudoku' %}'> 
+					<img class='preview-image' src="{% static "img/project_previews/sudoku.jpg" %}"></img>
+					</img>
+				</a>
 			</div>
 			<div class='preview-text right'>
-				Uses logical elimination techniques to solve sudoku puzzles.  This implemenation is written in Java in order to display it on the web.  There are also versions I have written in Python as a <span><a>command line</a></span> application and also as a <span><a>GUI</a><span> '.app' version.
+				<a href='{% url 'sudoku' %}'> 
+				Uses logical elimination techniques to solve sudoku puzzles.  This implemenation is written using AngularJS and Ajax calls with a python implementation in order to display it on the web.  There is also a Java Applet version I made.  There are also versions I have written in Python as a <span><abbr title="Link not set up">command line</abbr></span> application and also as a <span><abbr title="Link not set up">GUI</abbr><span> '.app' version.
 				<br>
 				Java Source Files
+			</a>
 			</div>
 		</div>
 	</div>
 	<div class='section-card section-div'>
 		<div class='card-footer thin'>
-			<img class="backdrop-image" src="{% static "img/backdrops/section-div.png" %}"></img>
+			<img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
 		</div>
-	</div>
 	</div>
 </div>
 
