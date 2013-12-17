@@ -52,14 +52,13 @@
 		</div>
 		<div class='card-desc'>
 			<div class='preview-image-container left'>
-				<a href='{% url 'sudoku' %}'> 
+				<a class='project-link' href='{% url 'sudoku' %}'> 
 					<img class='preview-image' src="{% static "img/project_previews/sudoku.jpg" %}"></img>
 					</img>
 				</a>
 			</div>
 			<div class='preview-text right'>
-				<a href='{% url 'sudoku' %}'> 
-				Uses logical elimination techniques to solve sudoku puzzles.  This implemenation is written using AngularJS and Ajax calls with a python implementation in order to display it on the web.  There is also a Java Applet version I made.  There are also versions I have written in Python as a <span><abbr title="Link not set up">command line</abbr></span> application and also as a <span><abbr title="Link not set up">GUI</abbr><span> '.app' version.
+				Uses logical elimination techniques to solve sudoku puzzles.  This implemenation is written using AngularJS and Ajax calls with a python implementation in order to display it on the <a class='project-link' href='{% url 'sudoku' %}'>web</a>.  There is also a Java Applet version I made.  There are also versions I have written in Python as a <span><abbr title="Link not set up">command line</abbr></span> application and also as a <span><abbr title="Link not set up">GUI</abbr><span> '.app' version.
 				<br>
 				Java Source Files
 			</a>

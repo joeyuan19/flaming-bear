@@ -12,6 +12,14 @@ html, body {
 	background: black;
 }
 
+a {
+	color: #00FF00;
+	text-decoration: none;
+}
+a:visited {
+	color: #009900;
+	text-decoration: none;
+}
 a:hover {
 	cursor: crosshair;
 }
@@ -324,6 +332,10 @@ a:hover {
 	background: -moz-linear-gradient(top, rgba(0,0,0,0), rgb(0,0,0));
 	content: ' ';
 	height: 1em;
+}
+
+.project-link {
+	
 }
 
 
