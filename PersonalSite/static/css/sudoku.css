@@ -46,8 +46,49 @@ input {
 	color: green;
 	font-size: 200%;
 }
+.overlay-true {
+	background: #444;
+	opacity: .6;
+}
+.overlay-msg-true {
+	color: black;
+	font-size: 200%;
+	position: absolute;
+	clear: both;
+	display: block;
+	top: 50%;
+	left: 40%;
+}
+.overlay-msg-false {
+	display: none;
+}
+.nav-bar {
+}
+.nav-col {
+} 
+.nav-btn {
+	width: 100px;
+	height: 20px;
+	padding: 0px;
+	margin: 0px;
+	color: black;
+	background: white;
+	border: 1px solid black;
+}
+.nav-btn:hover {
+	color: white;
+	background: black;
+}
+.nav-btn:active {
+	color: #FFF;
+	background: #F0F;
+}
+.nav-btn-link {
+	text-decoration: none;
+}
 
 
+/* Board deliniations for boxes*/
 .row-C {
 	border-bottom: 2px solid #006;
 }

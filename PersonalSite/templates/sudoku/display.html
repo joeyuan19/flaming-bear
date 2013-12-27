@@ -14,7 +14,14 @@
 
 {% block 'content' %}
 	<div ng-app='sudokuApp'>
-		<h1 class='title'>Sudoku Solver</h1>
+		<div class='nav-bar'>
+			<div class='nav-col'>
+				<h1 class='title'>Sudoku Solver</h1>
+			</div>
+			<div class='nav-col'>
+				<a href="{% url 'homepage' %}" class='nav-btn-link'><button class='nav-btn'>Home</button></a>
+			</div>
+		</div>
 		<div class='info'>
 			<p>
 				Welcome! This Sudoku Sovler works in a pretty straight forward way, input the puzzle you are working on and click solve to compute a solution.
@@ -27,36 +34,26 @@
 			</p>
 		</div>
 		<div ng-controller="Puzzle">
-			<div>
+			<div class='overlay-[[solving]]'>
 				<table style='float: left;'>
+					<tr><span class='overlay-msg-[[solving]]'>Solving...</span></tr>
 					<tr ng-repeat='(letter,row) in puzzle'>
 						<td ng-repeat='(index,cell) in row'>
-							<input type='text' pattern='[0-9]{1}' ng-model='cell.value' class='cell row-[[letter]] col-[[index]] solved-[[cell.solved]] error-[[cell.error]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");' />
+							<input type='text' pattern='[0-9]{1}' ng-model='cell.value' class='cell row-[[letter]] col-[[index]] solved-[[cell.solved]] error-[[cell.error]]' maxlength='1' size='1' ng-change='clearCellState("[[letter]][[index]]");check(false)' />
 						</td>
 					</tr>
 				</table>
-				<table style='float: left;'>
-					<tr>
-						<td>
-							<div class='info' ng-show='solved'><span>Time taken: </span><span>[[time]]</span> <span>seconds</span></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div class='error-info-[[error]]'><span ng-show='error'>Error Found: </span>[[errorMessage]]</div>
-						</td>
-					</tr>
-				</table>
+				<div> 
+					<div class='info' ng-show='solved'><span>Time taken: [[time]] seconds</span></div>
+					<div class='error-info-[[error]]'><span ng-show='error'>Error Found: </span>[[errorMessage]]</div>
+				</div>
 			</div>
 			<div class='btn-container'>
 				<button class='ctrl-btn' ng-click='solve()'>Solve</button>
 				<button class='ctrl-btn' ng-click='clear()'>Clear</button>
-				<button class='ctrl-btn' ng-click='check()'>Check</button>
+				<button class='ctrl-btn' ng-click='check(true)'>Check</button>
 			</div>
 		</div>
-	</div>
-	<div>
-		<a href='{% url 'homepage' %}'>Back to Homepage</a>
 	</div>
 {% endblock %}
 

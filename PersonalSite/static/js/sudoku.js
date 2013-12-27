@@ -73,9 +73,9 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 		if ($scope.solving) {return;}
 		else {$scope.clearSolvedState();}
 		$scope.solving = true;
+		$scope.solved = false;
 		var puzzle = $scope.getPuzzleArray();
 		if (!$scope.validatePuzzle(puzzle)) {
-			console.log('found error');
 			$scope.solving = false;
 			$scope.error = true;
 			return;
@@ -162,12 +162,15 @@ sudokuApp.controller('Puzzle',function Puzzle($scope) {
 		}
 		return true;
 	};
-	$scope.check = function() {
+	$scope.check = function(reportClear) {
 		var puzzle = $scope.getPuzzleArray();
+		$scope.errorMessage = '';
 		$scope.error = !$scope.validatePuzzle(puzzle);
-		if (!$scope.error) {
+		if (!$scope.error && reportClear) {
 			$scope.clearError();
 			$scope.errorMessage = 'No error found!';
+		} else {
+			$scope.solved = false;
 		}
 	};
 	$scope.clear = function() {
