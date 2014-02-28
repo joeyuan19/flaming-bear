@@ -11,4 +11,7 @@ def test(request):
 def presentation(request):
 	return render(request,'presentation.html')
 
+def xkcd_clock(request):
+    return render(request,'xkcd-clock.html'
+
 
