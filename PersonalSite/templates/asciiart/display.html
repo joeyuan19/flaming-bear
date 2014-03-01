@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'header_styles' %}
+{% endblock %}
+
+{% block 'header_scripts' %}
+<script type="text/javascript" src="{% static 'js/ascii.js' %}"></script>
+{% endblock %}
+
+{% block 'content' %}
+<h1>PyAsciiArt</h1>
+<div>
+    <!--Description-->
+</div>
+<div>
+    <form>
+        <!--File Upload / URL Form-->
+        <!--Dimensions and adjustables for output-->
+    </form>
+</div>
+<div>
+    <pre class='ascii-output'>    
+    </pre>
+</div>
+{% endblock %}

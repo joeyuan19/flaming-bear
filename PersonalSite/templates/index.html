@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+
+{% block 'header_styles' %}
+        <link href="{% static "css/personal_site_styles.css" %}" rel="stylesheet" media="all" />
+        <link rel="stylesheet" media="only screen and (max-width: 800px)" href="mobile.css">
+{% endblock %}
+
 {% block 'header_scripts' %}
 		<script type="text/javascript" src="{% static "js/bg-perspective.js" %}"></script>
 		<script type="text/javascript" src="{% static "js/page_loader.js" %}"></script>	
