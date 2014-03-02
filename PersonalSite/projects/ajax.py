@@ -1,6 +1,6 @@
 from dajaxice.decorators import dajaxice_register
 from django.utils import simplejson
-import sudoku.sudoku3 as s
+import projects.resources.sudoku3 as s
 import re
 
 def smart_stringify(time):

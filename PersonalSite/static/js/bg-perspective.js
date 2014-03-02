@@ -23,7 +23,8 @@ function center() {
 function adjustBackground() {
 	var topLeft, topTop;
 	var middleLeft, middleTop;
-	
+	var bottomLeft, bottomTop;
+
 	centerLeft = ($('#bottom').parent().width()  - $('#bottom').width())/2.0;
 	centerTop  = ($('#bottom').parent().height() - $('#bottom').height())/2.0;
 	
@@ -32,16 +33,23 @@ function adjustBackground() {
 	
 	middleLeft = centerLeft + .2*(event.clientX - $('#middle').width()/2.0);
 	middleTop  = centerTop  + .2*(event.clientY - $('#middle').height()/2.0);
-	
+
+	bottomLeft = centerLeft + .05*(event.clientX - $('#middle').width()/2.0);
+	bottomTop  = centerTop  + .05*(event.clientY - $('#middle').height()/2.0);
+
 	$('#top').css({
 		'top':topTop,
 		'left':topLeft,
-	})
+	});
 	$('#middle').css({
 		'top':middleTop,
 		'left':middleLeft,
-	})
+	});
+    $('#bottom').css({
+        'top':bottomTop,
+        'left':bottomLeft,
+    });
 }
 
-
+document.addEventListener('mousemove',adjustBackground);
 

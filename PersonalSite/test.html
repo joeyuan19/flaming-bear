@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function documentCallOnReady() {
+                console.log("doc ready");
+            };
+            function documentCallOnLoad() {
+                console.log("doc load");
+            };
+            function windowCallOnReady() {
+                console.log("win ready");
+            };
+            function windowCallOnLoad() {
+                console.log("win load");
+            };
+
+            window.addEventListener("load",windowCallOnLoad);
+            window.addEventListener("ready",windowCallOnReady);
+            document.addEventListener("load",documentCallOnLoad);
+            document.addEventListener("ready",docuementCallOnReady);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

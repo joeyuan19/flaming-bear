@@ -4,7 +4,7 @@ urlpatterns = patterns('',
 	url(r'test/','projects.views.test_view',name='project_test'),
 	url(r'sudoku','projects.views.sudoku_view',name='sudoku'),
 	url(r'ascii','projects.views.ascii_view',name='ascii'),
-    
+    url(r'xkcd-clock/','projects.views.xkcd_clock_view',name='xkcd_clock'),
 )
 
 

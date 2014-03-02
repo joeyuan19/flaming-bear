@@ -11,4 +11,3 @@ def test(request):
 def presentation(request):
 	return render(request,'presentation.html')
 
-

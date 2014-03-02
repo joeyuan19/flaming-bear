@@ -1,30 +1,41 @@
 {% load staticfiles %}
-	<!---->
 <div class='item-bin'>
 	<div class='section-card section-title sticky-placeholder'>
-		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/page-header-img.png" %}">
-				<h2>PROJECTS</h2>
+		<div id="resume-header" class='card-title sticky'>
+			<img class='backdrop-image' src="{% static "img/backdrops/page-header-img.jpg" %}">
+				<span class='content'><h1>Projects</h1></span>
 			</img>
 		</div>
-	</div>
+    </div>
 	<div class='section-card section-item'>
 		<div class='card-desc'>
-			Feel free to use any of the code and/or information here.  I only ask that you are polite about where you got it!
-		</div>
-	</div>
-</div>
-<div class='item-bin'>
-	<div class='section-card section-title sticky-placeholder'>
-		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-				<h2>COMPUTER SCIENCE FUN!</h2>
-			</img>
+            <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
+            <span class='content'>Feel free to use any of the code and/or information here.  I only ask that you are polite about where you got it!</span>
+            </img>
 		</div>
 	</div>
 	<div class='section-card section-item'>
 		<div class='card-title'>
-			Ascii Art
+            <h2> XKCD Clock GIF</h2>
+        </div>
+		<div class='card-desc'>
+			<div class='preview-image-container left'>
+				<img class='preview-image' src="{% static "img/project_previews/xkcd-clock-preview.jpg" %}"></img>
+				</img>
+			</div>
+			<div class='preview-text right'>
+                I thought one of the recent comics on <a href="https://xkcd.com/1335/">XKCD</a> was pretty cool, so I made <a href="{% url 'xkcd_clock' %}">a little GIF</a> of it.  It's a clock which shows the time of day, so I made a sped up version to see the clock in faster action than the 24 hr version.
+            </div>
+		</div>
+	</div>
+    <div class='section-card section-div'>
+        <div class='card-footer thin'>
+            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
+        </div>
+    </div>
+	<div class='section-card section-item'>
+		<div class='card-title'>
+            Ascii Art
 		</div>
 		<div class='card-desc'>
 			<div class='preview-image-container left'>
@@ -33,43 +44,14 @@
 			</div>
 			<div class='preview-text right'>
                 Python program which converts images to ascii characters.  The program uses the wonderful PIL library to handle reading the images and is capable of converting the images to any size, each character representing a pixel. Here is a little <a class='project-link' href='{% url 'ascii' %}'>webap</a> if you would prefer. The project can also be found on my <a class='project-link' href='https://github.com/joeyuan19/PyAsciiArt'>github</a>. 
-            </div>
+		    </div>
 		</div>
 	</div>
-	<!---->
-</div>
-<div class='item-bin'>
-	<div class='section-card section-title sticky-placeholder'>
-		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-				<h2>PHYSICS SIMULATIONS</h2>
-			</img>
-		</div>
-	</div>
-	<div class='section-card section-item'>
-		<div class='card-title'>
-			Masses on a String
-		</div>
-		<div class='card-desc'>
-			<div class='preview-image-container left'>
-				<img class='preview-image' src="{% static "img/project_previews/masses-on-string.png" %}"></img>
-				</img>
-			</div>
-			<div class='preview-text right'>
-				A simulation of a string with tension and masses placed at equal separation along the string.  Contains controls to adjust the physical properties and environment varaibles.  Keyboard controls are enabled.  Requires plugins to support running Java applets.  Alternatively you can download the source files <span><a>here</a></span>. Written in Java. 
-			</div>
-		</div>
-	</div>
-	<!---->
-</div>
-<div class='item-bin'>
-	<div class='section-card section-title sticky-placeholder'>
-		<div class='card-title sticky'>
-			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-				<h2>PUZZLES</h2>
-			</img>
-		</div>
-	</div>
+    <div class='section-card section-div'>
+        <div class='card-footer thin'>
+            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
+        </div>
+    </div>
 	<div class='section-card section-item'>
 		<div class='card-title'>
 			Sudoku Solver
@@ -82,11 +64,29 @@
 				</a>
 			</div>
             <div class='preview-text right'>
-                <span><b>No Online Implementation due to restrictions on Applets.  Workaround coming soon.</b></span><br>
 				Uses logical elimination techniques to solve sudoku puzzles.  This implemenation is written using AngularJS and Ajax calls with a python implementation in order to display it on the <a class='project-link' href='{% url 'sudoku' %}'>web</a>.  There is also a Java Applet version I made.  There are also versions I have written in Python as a <span><abbr title="Link not set up">command line</abbr></span> application and also as a <span><abbr title="Link not set up">GUI</abbr><span> '.app' version.
 				<br>
 				Java Source Files
 			</a>
+			</div>
+		</div>
+	</div>
+    <div class='section-card section-div'>
+        <div class='card-footer thin'>
+            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
+        </div>
+    </div>
+	<div class='section-card section-item'>
+		<div class='card-title'>
+			Masses on a String
+		</div>
+		<div class='card-desc'>
+			<div class='preview-image-container left'>
+				<img class='preview-image' src="{% static "img/project_previews/masses-on-string.jpg" %}"></img>
+				</img>
+			</div>
+			<div class='preview-text right'>
+                <i>(Not Currently Available)</i>A simulation of a string with tension and masses placed at equal separation along the string.  Contains controls to adjust the physical properties and environment varaibles.  Keyboard controls are enabled.  Requires plugins to support running Java applets.  Alternatively you can download the source files <span><a>here</a></span>. Written in Java. 
 			</div>
 		</div>
 	</div>

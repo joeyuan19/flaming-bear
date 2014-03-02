@@ -1,6 +1,15 @@
 {% load staticfiles %}
 <div class='item-bin'>
 	<div class='section-card section-title sticky-placeholder'>
+		<div id="resume-header" class='card-title sticky'>
+			<img class='backdrop-image' src="{% static "img/backdrops/page-header-img.jpg" %}">
+				<span class='content'><h1>Welcome!</h1></span>
+			</img>
+		</div>
+    </div>
+</div>
+<div class='item-bin'>
+	<div class='section-card section-title sticky-placeholder'>
 		<div class='card-title sticky'>
 			<img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
 				<span class='content'><h2><b>About Me</b></h2></span>
@@ -9,7 +18,13 @@
 	</div>
 	<div class='section-card section-item'>
 		<div class='card-title'>
-			<span class='content'>Hi<br>My name is Joe Yuan.</span>
-		</div>
+			<span class='content'>Hi, My name is Joe Yuan</span>
+            <br/><br/>
+            I'm a Physicist, Computer Programmer, but really I just like solving puzzles.
+            <br/><br/>
+            This page is a work in progress so check back often!
+            <br/><br/>
+            Check out the <span id="id-text" class="projects"><a href="Javascript:switchSections('projects');">projects</a></span> to see what i've been up to.
+        </div>
 	</div>
 </div>

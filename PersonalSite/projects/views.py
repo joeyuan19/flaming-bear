@@ -17,6 +17,13 @@ def ascii_view(request):
         context_instance=RequestContext(request)
     )
 
+def xkcd_clock_view(request):
+    return render_to_response(
+        'xkcd-clock.html',
+        {'alt_title':'XKCD Clock'},
+        context_instance=RequestContext(request)
+    )
+
 def test_view(request):
 	return render_to_response(
 		'sudoku/test.html',

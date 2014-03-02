@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block 'content' %}
+    <h1><a href="https://xkcd.com/1335/">XKCD</a> GIF of World Clock</h1>
+    <a href="{% url 'homepage' %}">Home</a>
+    <br>
+    <p>Pretty self-explanatory, I felt compelled to make a GIF of Randall's recent World Clock comic on <a href="https://xkcd.com">XKCD</a>.  If you don&rsquo;t read XKCD, take a look!  I live off those comics.</p>
+    <p> Sorry this page is not that pretty yet, it was kind of a quick effort</p>
+    <p>
+    <img src="{% static 'img/xkcd-clock/clock.gif' %}"/>
+    </p>
+{% endblock %}

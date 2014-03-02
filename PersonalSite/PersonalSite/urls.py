@@ -12,26 +12,21 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-	(r'^google15592f70a37e3c4a\.html$', lambda r: HttpResponse("google-site-verification: google15592f70a37e3c4a.html", mimetype="text/plain")),
-	
 	url(r'^presentation/','PersonalSite.views.presentation',name='presentation'),
 	url(r'^test$','PersonalSite.views.test',name='test'),
-	
 	# Admin
 	url(r'^admin/', include(admin.site.urls)),
-	
+
 	# Ajax urls
 	(dajaxice_config.dajaxice_url,include('dajaxice.urls')),
 
 	# blog
 	url(r'^blog/',include('blog.urls')),
 
-	# Sudoku
-	#url(r'^sudoku/',include('sudoku.urls')),
 	url(r'^project/',include('projects.urls')),
-
-	url(r'^$','PersonalSite.views.homepage', name='homepage'),
-
+	
+    url(r'^$','PersonalSite.views.homepage', name='homepage'),
+    url(r'','PersonalSite.views.homepage',name='deafult_to_homepage'),    
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
