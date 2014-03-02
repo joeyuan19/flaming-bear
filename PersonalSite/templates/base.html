@@ -19,17 +19,22 @@
 
         <!-- CSS Styles  -->
         {% block 'header_styles' %}
+            <!-- No header Styles -->
         {% endblock %}
 
         <!-- JS Scripts -->
         <script type="text/javascript" src="{% static "js/jquery-1.10.2.min.js" %}"></script>
         {% dajaxice_js_import %}
         {% block 'header_scripts' %}
+            <!-- No header Scripts -->
         {% endblock %}
     </head>
     <body>
         {% block 'content' %}
         404 - NO CONTENT FOUND =(
+        {% endblock %}
+        {% block 'footer_scripts' %}
+            <!-- No footer Scripts -->
         {% endblock %}
     </body>
 </html>

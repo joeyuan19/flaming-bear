@@ -11,3 +11,6 @@ def test(request):
 def presentation(request):
 	return render(request,'presentation.html')
 
+def homepage_redirect(request):
+    return render(request,'error.html')
+

@@ -26,7 +26,8 @@ urlpatterns = patterns('',
 	url(r'^project/',include('projects.urls')),
 	
     url(r'^$','PersonalSite.views.homepage', name='homepage'),
-    url(r'','PersonalSite.views.homepage',name='deafult_to_homepage'),    
+    
+    url(r'','PersonalSite.views.homepage_redirect',name='homepage_redirect'),    
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
