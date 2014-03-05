@@ -39,8 +39,10 @@
         </div>
 		<div class='card-desc'>
 			<div class='preview-image-container left'>
-				<img class='preview-image' src="{% static "img/project_previews/xkcd-clock-preview.jpg" %}"></img>
-				</img>
+                <a href="{% url 'xkcd_clock' %}">
+                <img class='preview-image' src="{% static "img/project_previews/xkcd-clock-preview.jpg" %}"></img>
+                </img>
+            </a>
 			</div>
 			<div class='preview-text right'>
                 I thought one of the recent comics on <a href="https://xkcd.com/1335/">XKCD</a> was pretty cool, so I made <a href="{% url 'xkcd_clock' %}">a little GIF</a> of it.  It's a clock which shows the time of day, so I made a sped up version to see the clock in faster action than the 24 hr version.
