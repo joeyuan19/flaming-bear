@@ -1,0 +1,8 @@
+[ ] Blog
+    - Integrate/Replace with projects
+[ ] Objectify all the home info pages
+    - They can be better created with a django for loop.
+[ ] Make the transitions smoother
+    - This might be best done once the Objectification is done, as that will require a pretty decent size overhaul
+    - Transitions are a little clunky...
+

@@ -2,6 +2,9 @@ PersonalSite/extras/*
 PersonalSite/assets/*
 
 *.swp
+*.un~
+
+*.*~
 
 # Compiled source #
 ###################
