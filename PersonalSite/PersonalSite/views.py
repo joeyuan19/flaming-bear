@@ -14,3 +14,4 @@ def presentation(request):
 def homepage_redirect(request):
     return render(request,'error.html')
 
+
