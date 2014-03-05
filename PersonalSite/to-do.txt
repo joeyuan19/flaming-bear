@@ -1,0 +1,6 @@
+[ ] Blog
+    [ ] Integrate/Replace with projects
+[ ] Objectify all the home info pages
+    [ ] They can be better created with a django for loop.
+
+
