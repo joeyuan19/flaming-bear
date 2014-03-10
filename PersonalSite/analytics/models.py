@@ -33,13 +33,22 @@ class Visitor(models.Model):
         print self.first_visit
         return super(Visitor,self).save(*args,**kwargs)
 
+    def __str__(self):
+        return self.__repr__()
+
+    def __unicode__(self):
+        return self.__repr__()
+
+    def __repr__(self):
+        return "<Visitor ip=" + self.ip + ">"
+
     def visit_count(self):
         return len(self.visits.all())
 
     def list_visits(self):
         li = ""
         for visit in self.visits.all():
-            li += visit.url + " on " + visit.date + "\n"
+            li += visit.url + " on " + str(visit.date) + "\n"
         return li[:-1]
 
 
