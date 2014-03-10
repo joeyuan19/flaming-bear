@@ -46,9 +46,8 @@ class RegisterPageView(object):
 		for url in BLACK_LIST_URLS:
 			if url in page_url:
 				return
-
         print "About to get IP::::::"
-		ip = get_client_ip(request)
+        ip = get_client_ip(request)
         print ip
         try:
             # Old Visitor
