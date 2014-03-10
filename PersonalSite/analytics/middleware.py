@@ -58,7 +58,7 @@ class RegisterPageView(object):
                             )
                 else:
                     # Recent-visit don't re-record
-
+                    pass
         except:
             # New Visitor
             visitor = Visitor(
