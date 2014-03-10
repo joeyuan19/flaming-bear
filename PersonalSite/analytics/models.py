@@ -13,7 +13,7 @@ class Visit(models.Model):
     def get_visitor(self):
         return "IP: " + self.visitor.ip
 
-    def __save__(self,*args,**kwargs):
+    def save(self,*args,**kwargs):
         if not self.id:
             self.date = datetime.datetime.today()
         return super(Visitor,self).save(*args,**kwargs)
@@ -23,12 +23,13 @@ class Visitor(models.Model):
     user_agent = models.CharField(max_length=512)
     visits = models.ManyToManyField(Visit,related_name='url_visit')
     first_visit = models.DateTimeField(editable=False)
-    last_visit = models.DateTimeField(editable=False)
+    last_visit = models.DateTimeField()
 
-    def __save__(self,*args,**kwargs):
+    def save(self,*args,**kwargs):
         if not self.id:
             self.first_visit = datetime.datetime.today()
         self.last_visit = datetime.datetime.today()
+        print self.first_visit
         return super(Visitor,self).save(*args,**kwargs)
 
     def visit_count(self):

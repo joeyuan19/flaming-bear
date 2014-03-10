@@ -9,7 +9,7 @@ def get_request_url(request):
     try:
         path = request.get_full_path()
     except:
-        path = "MO PATH AVAILABLE"
+        path = "NO PATH AVAILABLE"
     return path
 
 
