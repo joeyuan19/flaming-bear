@@ -29,9 +29,11 @@ def get_client_ip(request):
             ip = x_forwarded_for.split(',')[0]
         else:
             ip = request.META.get('REMOTE_ADDR')
+        return ip
     except:
         # default
         ip = '-1.-1.-1.-1'
+        return ip
     return ip
 
 
