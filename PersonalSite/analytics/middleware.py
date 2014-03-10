@@ -45,6 +45,7 @@ class RegisterPageView(object):
 				return
 
 		ip = get_client_IP(request)
+        print ip
         try:
             # Old Visitor
             visitor = Visitor.objects.get(ip=ip)
