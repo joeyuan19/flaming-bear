@@ -21,7 +21,6 @@ def get_user_agent(request):
 
 
 def get_client_ip(request):
-    print request
     ip = '-1.-1.-1.-1'
     try:
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -40,14 +39,11 @@ def get_client_ip(request):
 class RegisterPageView(object):
     def process_request(self, request):
         page_url = get_request_url(request)
-        print "PAGE URL: ",page_url
         # Do not makes records for unwanted site areas
         for url in BLACK_LIST_URLS:
             if url in page_url:
                 return
-        print "About to get IP from request: ",request
         ip = get_client_ip(request)
-        print ip
         try:
             # Old Visitor
             visitor = Visitor.objects.get(ip=ip)
