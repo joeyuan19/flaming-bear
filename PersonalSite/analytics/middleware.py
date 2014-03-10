@@ -10,24 +10,30 @@ def get_request_url(request):
 	try:
 		path = request.get_full_path()
 	except:
-		path = "/PATH_NOT_FOUND_404"
+		path = "MO PATH AVAILABLE"
 	return path
 
-def get_client_IP(request):
-	IP = request.META.get('HTTP_X_FORWARDED_FOR',request.META.get('REMOTE_ADDR', '127.0.0.1'))
-	if IP:
-		ip_regex = re.compile(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}')
-		try:
-			IP = ip_regex.match(IP)
-			if IP:
-				IP = IP.group(0)
-			else:
-				IP = '-1.-1.-1.-1' # Dummy IP Address
-		except:
-			IP = '-1.-1.-1.-1' # Dummy IP Address
-	return IP
 
-# Views
+def get_user_agent(request):
+    try:
+        return request.META.get('HTTP_USER_AGENT')
+    except:
+        return 'NO USER AGENT AVAILABLE'
+
+
+def get_client_ip(request):
+    ip = '-1.-1.-1.-1'
+    try:
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+    except:
+        # default
+        ip = '-1.-1.-1.-1'
+    return ip
+
 
 class RegisterPageView(object):
 	def process_request(self, request):
@@ -39,29 +45,31 @@ class RegisterPageView(object):
 				return
 
 		IP = get_client_IP(request)
-        visitor = Visitor.objects.filter(visitor_ip=IP)
+        try:
+            # Old Visitor
+            visitor = Visitor.objects.get(ip=IP)
+            previous_visits = visitor.visits.filter(visit__url=page_url)
+            if len(previous_visits) > 0:
+                if datetime.datetime.today() - timedelta(seconds=10) > previous_visits.visits[-1].date:
+                    # Non-recent visit
+                    visit = Visit(
+                            url=page_url,
+                            visitor=visitor
+                            )
+                else:
+                    # Recent-visit don't re-record
 
-        last_visit = visitor.visits.objects.filter(url=page_url)
-        if len(last_visit) > 0:
-
-
-		page = PageInfo.objects.filter(url=page_url)
-		if len(page) <= 0:
-			page = PageInfo()
-			page.url = page_url
-			page.save()
-		else:
-			page = page[0]
-
-		if page.check_visitor(IP):
-			viewer = PageViewer.objects.all()
-			viewer.get()
-			visit = PageView()
-			visit.IP = IP
-			visit.page = page
-			visit.save()
-			page.views.add(visit)
-			page.save()
+        except:
+            # New Visitor
+            visitor = Visitor(
+                    ip=IP,
+                    user_agent=get_user_agent(request)
+                    )
+            visitor.save()
+            visitor.visits.create(
+                    url=page_url,
+                    visitor=visitor
+                    )
 
 
 
