@@ -5,7 +5,7 @@ from django.db import models
 class Visit(models.Model):
     url = models.CharField(max_length=256)
     date = models.DateTimeField(editable=False)
-    visitor = models.ForeignKey('Visitor',related_name)
+    visitor = models.ForeignKey('Visitor')
     # Possibly extend this class in the future to make a tree
     # that gives something like "/ -> /projects -> /resume -> /derp -> / ->
     # projects/asciiart"
