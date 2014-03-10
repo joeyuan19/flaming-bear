@@ -24,15 +24,15 @@
 		<div class='card-desc'>
 			<ul class='contact-list card-image'>
 				<li class='contact-list-item'>
-					<div id="email"> 
-						<img id="mail-icon" class='contact-icon' src='{% static "img/social_icons/mail-icon-hover.png" %}'/>
-					</div>
+                    <a id="email" href="javascript: thisFunctionWillEmailMe();">
+                        <img id="mail-icon" class='contact-icon' src='{% static "img/social_icons/mail-icon-hover.png" %}'/>
+                    </a>
 				</li>
 				<li></li>
 				<li></li>
 				<li class='contact-list-item'>
-					<a class='phone-link'>
-						<img id="phone-icon" class='contact-icon' src='{% static "img/social_icons/phone-icon-hover.png" %}'/>
+					<a class='phone-link' href="javascript: thisFunctionWillCallMe();" >
+                        <img id="phone-icon" class='contact-icon' src='{% static "img/social_icons/phone-icon-hover.png" %}'/>
 					</a>
 				</li>
 			</ul>
