@@ -39,7 +39,7 @@ class Visitor(models.Model):
     def list_visits(self):
         li = ""
         for visit in self.visits.all():
-            li += visit.url + " on " + self.date + "\n"
+            li += visit.url + " on " + visit.date + "\n"
         return li[:-1]
 
 
