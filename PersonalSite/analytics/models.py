@@ -17,7 +17,7 @@ class Visit(models.Model):
     def save(self,*args,**kwargs):
         if not self.id:
             self.date = datetime.datetime.today()
-        return super(Visitor,self).save(*args,**kwargs)
+        return super(Visit,self).save(*args,**kwargs)
 
 class Visitor(models.Model):
     ip = models.CharField(max_length=64)
