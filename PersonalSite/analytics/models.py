@@ -5,7 +5,7 @@ from django.db import models
 class Visit(models.Model):
     url = models.CharField(max_length=256)
     date = models.DateTimeField(editable=False)
-    visitor = models.ForeignKey('Visitor')
+    visitor = models.ForeignKey('Visitor',related_name)
     # Possibly extend this class in the future to make a tree
     # that gives something like "/ -> /projects -> /resume -> /derp -> / ->
     # projects/asciiart"
@@ -21,7 +21,7 @@ class Visit(models.Model):
 class Visitor(models.Model):
     ip = models.CharField(max_length=64)
     user_agent = models.CharField(max_length=512)
-    visits = models.ManyToManyField(Visit)
+    visits = models.ManyToManyField(Visit,related_name='url_visit')
     first_visit = models.DateTimeField(editable=False)
     last_visit = models.DateTimeField(editable=False)
 
