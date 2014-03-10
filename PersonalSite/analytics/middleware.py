@@ -7,11 +7,11 @@ BLACK_LIST_URLS = ['admin']
 # Helper Methods
 
 def get_request_url(request):
-	try:
-		path = request.get_full_path()
-	except:
-		path = "MO PATH AVAILABLE"
-	return path
+    try:
+        path = request.get_full_path()
+    except:
+        path = "MO PATH AVAILABLE"
+    return path
 
 
 def get_user_agent(request):
@@ -39,13 +39,13 @@ def get_client_ip(request):
 
 
 class RegisterPageView(object):
-	def process_request(self, request):
-		page_url = get_request_url(request)
+    def process_request(self, request):
+        page_url = get_request_url(request)
         print "PAGE URL: ",page_url
-		# Do not makes records for unwanted site areas
-		for url in BLACK_LIST_URLS:
-			if url in page_url:
-				return
+        # Do not makes records for unwanted site areas
+        for url in BLACK_LIST_URLS:
+            if url in page_url:
+                return
         print "About to get IP from request: ",request
         ip = get_client_ip(request)
         print ip
