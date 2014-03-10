@@ -44,7 +44,7 @@ class RegisterPageView(object):
 			if url in page_url:
 				return
 
-		ip = get_client_IP(request)
+		ip = get_client_ip(request)
         print ip
         try:
             # Old Visitor
