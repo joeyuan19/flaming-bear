@@ -111,7 +111,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'analytics.middleware.R',
+    'analytics.middleware.RegisterPageView',
 )
 
 ROOT_URLCONF = 'PersonalSite.urls'
