@@ -41,7 +41,7 @@ def get_client_ip(request):
 class RegisterPageView(object):
 	def process_request(self, request):
 		page_url = get_request_url(request)
-
+        print "PAGE URL: ",page_url
 		# Do not makes records for unwanted site areas
 		for url in BLACK_LIST_URLS:
 			if url in page_url:
