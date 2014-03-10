@@ -22,6 +22,7 @@ def get_user_agent(request):
 
 
 def get_client_ip(request):
+    print request
     ip = '-1.-1.-1.-1'
     try:
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -46,6 +47,7 @@ class RegisterPageView(object):
 			if url in page_url:
 				return
 
+        print "About to get IP::::::"
 		ip = get_client_ip(request)
         print ip
         try:
