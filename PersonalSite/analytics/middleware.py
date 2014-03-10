@@ -45,11 +45,15 @@ class RegisterPageView(object):
                 return
         ip = get_client_ip(request)
         try:
+            visitor = Visitor.objects.filter(ip=ip)
+            if len(visitor) > 0:
+                visitor = visitor[-1]
+            else:
+                raise Exception
             # Old Visitor
-            visitor = Visitor.objects.get(ip=ip)
             previous_visits = visitor.visits.filter(visit__url=page_url)
             if len(previous_visits) > 0:
-                if datetime.datetime.today() - timedelta(seconds=10) > previous_visits.visits[-1].date:
+                if datetime.datetime.today() - timedelta(minutes=30) > previous_visits.visits[-1].date:
                     # Non-recent visit
                     visitor.visits.create(
                             url=page_url,
