@@ -1,5 +1,4 @@
 from analytics.models import Visit, Visitor
-import re
 
 
 BLACK_LIST_URLS = ['admin','static','favicon']

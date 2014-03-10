@@ -9,7 +9,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-	('Joe Yuan','joe.yuan19@gmail.com'),
+    ('Joe Yuan','joe.yuan19@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -74,7 +74,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	PROJECT_ROOT+'/static/',
+    PROJECT_ROOT+'/static/',
 )
 
 # List of finder classes that know how to find static files in
@@ -88,13 +88,13 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 f = None
 try:
-	f = open(PROJECT_ROOT+'/extras/KEY.txt','r')
-	SECRET_KEY = f.readline().strip()
+    f = open(PROJECT_ROOT+'/extras/KEY.txt','r')
+    SECRET_KEY = f.readline().strip()
 except:
-	SECRET_KEY = '$zr@-0lstgzehu)k(-pbg7wz=mv8%n%o7+j_@h&amp;-yy&amp;sx)pyau'
+    SECRET_KEY = '$zr@-0lstgzehu)k(-pbg7wz=mv8%n%o7+j_@h&amp;-yy&amp;sx)pyau'
 finally:
-	if f:
-		f.close()
+    if f:
+        f.close()
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -111,6 +111,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.context_processors.request',
     'analytics.middleware.RegisterPageView',
 )
 
@@ -123,7 +124,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	PROJECT_ROOT+'/templates/',
+    PROJECT_ROOT+'/templates/',
 )
 
 INSTALLED_APPS = (
@@ -134,13 +135,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dajaxice',
-	'content',
-	'blog',
-	'projects',
-	'comment',
-	'south',
+    'content',
+    'blog',
+    'projects',
+    'comment',
+    'south',
     'analytics',
-	'django_extensions',
+    'django_extensions',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
