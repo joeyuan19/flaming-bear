@@ -44,10 +44,10 @@ class RegisterPageView(object):
 			if url in page_url:
 				return
 
-		IP = get_client_IP(request)
+		ip = get_client_IP(request)
         try:
             # Old Visitor
-            visitor = Visitor.objects.get(ip=IP)
+            visitor = Visitor.objects.get(ip=ip)
             previous_visits = visitor.visits.filter(visit__url=page_url)
             if len(previous_visits) > 0:
                 if datetime.datetime.today() - timedelta(seconds=10) > previous_visits.visits[-1].date:
@@ -59,10 +59,11 @@ class RegisterPageView(object):
                 else:
                     # Recent-visit don't re-record
                     pass
+
         except:
             # New Visitor
             visitor = Visitor(
-                    ip=IP,
+                    ip=ip,
                     user_agent=get_user_agent(request)
                     )
             visitor.save()
