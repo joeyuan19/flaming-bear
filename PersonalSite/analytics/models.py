@@ -6,5 +6,6 @@ class Visit(models.Model):
 	IP = models.CharField(max_length=100)
 	url = models.CharField(max_length=100)
 	count = models.IntegerField()
+    last_visited = models.DateField(auto_now=True)
 
 
