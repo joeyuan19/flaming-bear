@@ -56,10 +56,11 @@ class RegisterPageView(object):
             if len(previous_visits) > 0:
                 if datetime.datetime.today() - timedelta(seconds=10) > previous_visits.visits[-1].date:
                     # Non-recent visit
-                    visit = Visit(
+                    visitor.visits.create(
                             url=page_url,
                             visitor=visitor
                             )
+                    visitor.save()
                 else:
                     # Recent-visit don't re-record
                     pass
@@ -75,6 +76,7 @@ class RegisterPageView(object):
                     url=page_url,
                     visitor=visitor
                     )
+            visitor.save()
 
 
 
