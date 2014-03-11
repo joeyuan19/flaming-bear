@@ -50,10 +50,12 @@ class RegisterPageView(object):
                 print "old user found"
                 visitor = visitor[len(visitor)-1]
             else:
+                print "new user"
                 raise Exception
             # Old Visitor
             previous_visits = visitor.visits.filter(visit__url=page_url)
             if len(previous_visits) > 0:
+                print "previous visit exists"
                 if datetime.datetime.today() - timedelta(minutes=30) > previous_visits.visits[-1].date:
                     # Non-recent visit
                     visitor.visits.create(
@@ -66,7 +68,7 @@ class RegisterPageView(object):
                     pass
 
         except Exception as e:
-            print e
+            print "Ex",e
             # New Visitor
             visitor = Visitor(
                     ip=ip,

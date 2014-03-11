@@ -30,7 +30,6 @@ class Visitor(models.Model):
         if not self.id:
             self.first_visit = datetime.datetime.today()
         self.last_visit = datetime.datetime.today()
-        print self.first_visit
         return super(Visitor,self).save(*args,**kwargs)
 
     def __str__(self):
