@@ -47,6 +47,7 @@ class RegisterPageView(object):
         try:
             visitor = Visitor.objects.filter(ip=ip)
             if len(visitor) > 0:
+                print "old user found"
                 visitor = visitor[-1]
             else:
                 raise Exception
@@ -64,7 +65,8 @@ class RegisterPageView(object):
                     # Recent-visit don't re-record
                     pass
 
-        except:
+        except Exception as e:
+            print e
             # New Visitor
             visitor = Visitor(
                     ip=ip,
