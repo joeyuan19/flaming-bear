@@ -54,7 +54,7 @@ class RegisterPageView(object):
             # Old Visitor
             previous_visits = visitor.visits.filter(url=page_url)
             if len(previous_visits) > 0:
-                if timezone.now() - datetime.timedelta(seconds=30) > previous_visits[len(previous_visits)-1].date:
+                if timezone.now() - datetime.timedelta(minutes=10) > previous_visits[len(previous_visits)-1].date:
                     # Non-recent visit
                     visitor.visits.create(
                             url=page_url,
