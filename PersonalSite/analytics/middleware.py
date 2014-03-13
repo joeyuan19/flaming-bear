@@ -56,7 +56,7 @@ class RegisterPageView(object):
             previous_visits = visitor.visits.filter(visit__url=page_url)
             if len(previous_visits) > 0:
                 print "previous visit exists"
-                if datetime.datetime.today() - timedelta(minutes=30) > previous_visits.visits[-1].date:
+                if datetime.datetime.today() - timedelta(minutes=30) > previous_visits[len(previous_visits)-1].date:
                     # Non-recent visit
                     visitor.visits.create(
                             url=page_url,
@@ -66,9 +66,8 @@ class RegisterPageView(object):
                 else:
                     # Recent-visit don't re-record
                     pass
-
         except Exception as e:
-            print "Ex",e
+            print "Ex: ",e
             # New Visitor
             visitor = Visitor(
                     ip=ip,
