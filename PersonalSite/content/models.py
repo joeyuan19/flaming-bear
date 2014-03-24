@@ -9,13 +9,16 @@ class Project(models.Model):
     rel_date    = models.CharField(max_length=128)
     modified = models.DateField(auto_now=True)
 
-    def __save__(self,*args,**kwargs):
+    def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
         super(Project,self).save(*args,**kwargs)
 
+class ProjectCategory(models.Model):
+    title = models.CharField(max_length=64)
+    entries = models.ManyToManyField(Project)
+
 class Contact(models.Model):
     pass
-
 
 class Resume(models.Model):
     title = models.CharField(max_length=128)
@@ -23,10 +26,13 @@ class Resume(models.Model):
     relevent_dates = models.CharField(max_length=128)
     modified = models.DateTimeField()
 
-    def __save__(self,*args,**kwargs):
+    def saveself,*args,**kwargs):
         self.modified = datetime.datetime.today()
         super(Resume,self).save(*args,**kwargs)
 
+class ResumeCategory(models.Model):
+    title = models.CharField(max_length=64)
+    entries = models.ManyToManyField(Resume)
 
 class Friend(models.Model):
     name = models.CharField(max_length=64)
@@ -35,7 +41,7 @@ class Friend(models.Model):
     url = models.URLField()
     modified = models.DateTimeField(editable=False)
 
-    def __save__(self,*args,**kwargs):
+    def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
         super(Friend,self).save(*args,**kwargs)
 
