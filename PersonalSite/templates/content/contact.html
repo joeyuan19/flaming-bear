@@ -87,12 +87,18 @@
                         </a>
                     </div>
                     <script>
-                        $('#so').hover(
-                            function() {
-                                $('#so-stat-card').fadeIn();
-                            },
-                            function() {
-                                $('#so-stat-card').fadeOut();
+                        $('#so').mouseenter(function(){
+                            $('#so-stat-card').fadeIn();
+                        });
+                        $('#so').mouseleave(function(){
+                            $('#so-stat-card').fadeOut();
+                        });
+                        $('#so').mousemove(
+                            function(e) {
+                                $('#so-stat-card').css({
+                                    'left':e.pageX,
+                                    'top':e.pageY
+                                });
                             }
                         );
                     </script>
