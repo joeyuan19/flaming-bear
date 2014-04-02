@@ -26,7 +26,7 @@ class Resume(models.Model):
     relevent_dates = models.CharField(max_length=128)
     modified = models.DateTimeField()
 
-    def saveself,*args,**kwargs):
+    def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
         super(Resume,self).save(*args,**kwargs)
 

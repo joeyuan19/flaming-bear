@@ -30,8 +30,8 @@ class Visit(models.Model):
         return super(Visit,self).save(*args,**kwargs)
 
 class Visitor(models.Model):
-    ip = models.CharField(max_length=64)
-    user_agent = models.CharField(max_length=512)
+    ip = models.CharField(max_length=64,null=True,blank=True,default="-1.-1.-1.-1")
+    user_agent = models.CharField(max_length=512, null=True,blank=True,default="")
     visits = models.ManyToManyField(Visit,related_name='url_visit')
     first_visit = models.DateTimeField(editable=False)
     last_visit = models.DateTimeField()
