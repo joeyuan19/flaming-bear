@@ -97,8 +97,8 @@
                             function(e) {
                                 console.log(e.pageX + ", " + e.pageY);
                                 $('#so-stat-card').css({
-                                    'left':e.pageX,
-                                    'top':e.pageY
+                                    'left':e.pageX - $(this).offsetLeft,
+                                    'top':e.pageY - $(this).offsetTop
                                 });
                             }
                         );
