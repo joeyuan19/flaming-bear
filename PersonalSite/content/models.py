@@ -12,7 +12,7 @@ class Project(models.Model):
     modified = models.DateField(editable=False,blank=True)
 
     def __repr__(self):
-        return "<Project tile:"+self.title+">"
+        return "<Project title:"+self.title+">"
 
     def __unicode__(self):
         return self.__repr__()
@@ -29,7 +29,7 @@ class ProjectCategory(models.Model):
     entries = models.ManyToManyField(Project)
     
     def __repr__(self):
-        return "<Project Category tile:"+self.title+">"
+        return "<Project Category title:"+self.title+">"
 
     def __unicode__(self):
         return self.__repr__()
@@ -48,7 +48,7 @@ class Resume(models.Model):
     modified = models.DateTimeField(editable=False,blank=True)
     
     def __repr__(self):
-        return "<Resume tile:"+self.title+">"
+        return "<Resume title:"+self.title+">"
 
     def __unicode__(self):
         return self.__repr__()
@@ -65,7 +65,7 @@ class ResumeCategory(models.Model):
     entries = models.ManyToManyField(Resume)
     
     def __repr__(self):
-        return "<Resume Category tile:"+self.title+">"
+        return "<Resume Category title:"+self.title+">"
 
     def __unicode__(self):
         return self.__repr__()
