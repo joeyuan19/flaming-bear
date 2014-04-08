@@ -22,12 +22,7 @@ from django.shortcuts import render_to_response
 from content.models import ResumeCategory
 
 def django_test(request):
-    categories = [
-    {
-        'title':cat.title,
-        'entries':[entry for entry in cat.entries.all()]
-    }
-    for cat in ResumeCategory.objects.all()]
+    categories = [for cat in ResumeCategory.objects.all()]
     debug = str(len(categories))
     canary = "canary"
     return render_to_response(
