@@ -28,9 +28,9 @@ def django_test(request):
     return render_to_response(
         'content/resume_django.html',
         {
-            debug:debug,
-            canary:canary,
-            categories:categories,
+            'debug':debug,
+            'canary':canary,
+            'categories':categories,
         },
         context_instance=RequestContext(request)
     )
