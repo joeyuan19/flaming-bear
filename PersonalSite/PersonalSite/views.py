@@ -22,7 +22,7 @@ from django.shortcuts import render_to_response
 from content.models import ResumeCategory
 
 def django_test(request):
-    cats = ResumeCategory.objects.all()
+    categories = ResumeCategory.objects.all()
     return render_to_response(
         'content/resume_django.html',
         {
