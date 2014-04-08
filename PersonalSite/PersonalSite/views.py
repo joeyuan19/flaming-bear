@@ -23,9 +23,11 @@ from content.models import ResumeCategory
 
 def django_test(request):
     categories = ResumeCategory.objects.all()
+    debug = len(categories)
     return render_to_response(
         'content/resume_django.html',
         {
+            debug:debug,
             categories:categories,
         },
         context_instance=RequestContext(request)
