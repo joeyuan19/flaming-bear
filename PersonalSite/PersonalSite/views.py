@@ -29,7 +29,7 @@ def django_test(request):
         'content/resume_django.html',
         {
             'debug':debug,
-            'canary':canary,
+            'canary':"Made it!",
             'categories':categories,
         },
         context_instance=RequestContext(request)
