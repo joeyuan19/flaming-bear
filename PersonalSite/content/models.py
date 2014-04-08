@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,7 +12,7 @@ class Project(models.Model):
     modified = models.DateField(blank=True)
 
     def save(self,*args,**kwargs):
-        self.modified = datetime.datetime.today()
+        self.modified = timezone.now()
         super(Project,self).save(*args,**kwargs)
 
 class ProjectCategory(models.Model):
@@ -28,7 +29,7 @@ class Resume(models.Model):
     modified = models.DateTimeField(blank=True)
 
     def save(self,*args,**kwargs):
-        self.modified = datetime.datetime.today()
+        self.modified = timezone.now()
         super(Resume,self).save(*args,**kwargs)
 
 class ResumeCategory(models.Model):
@@ -43,6 +44,6 @@ class Friend(models.Model):
     modified = models.DateTimeField(editable=False,blank=True)
 
     def save(self,*args,**kwargs):
-        self.modified = datetime.datetime.today()
+        self.modified = timezone.now()
         super(Friend,self).save(*args,**kwargs)
 
