@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Project(models.Model):
-    title   = models.CharField(max_length=128,max_length=128,blank=True,null=True,default="")
+    title   = models.CharField(max_length=128,blank=True,null=True,default="")
     body    = models.TextField(blank=True,null=True,default="")
     preview = models.ImageField(upload_to="img/project_previews/",blank=True,null=True,default=None)
     rel_date    = models.CharField(max_length=128,blank=True,null=True,default="")
@@ -32,7 +32,7 @@ class Resume(models.Model):
         super(Resume,self).save(*args,**kwargs)
 
 class ResumeCategory(models.Model):
-    title = models.CharField(max_length=64,max_length=128,blank=True,null=True,default="")
+    title = models.CharField(max_length=64)
     entries = models.ManyToManyField(Resume)
 
 class Friend(models.Model):
