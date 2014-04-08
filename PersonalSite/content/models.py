@@ -26,7 +26,7 @@ class Project(models.Model):
 
 class ProjectCategory(models.Model):
     title = models.CharField(max_length=64)
-    entries = models.ManyToManyField(Project)
+    entries = models.ManyToManyField(Project,blank=True)
     
     def __repr__(self):
         return "<Project Category title:"+self.title+">"
@@ -62,7 +62,7 @@ class Resume(models.Model):
 
 class ResumeCategory(models.Model):
     title = models.CharField(max_length=64)
-    entries = models.ManyToManyField(Resume)
+    entries = models.ManyToManyField(Resume,blank=True)
     
     def __repr__(self):
         return "<Resume Category title:"+self.title+">"
