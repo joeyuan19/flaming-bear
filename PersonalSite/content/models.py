@@ -5,7 +5,7 @@ from django.db import models
 class Project(models.Model):
     title   = models.CharField(max_length=128,max_length=128,blank=True,null=True,default="")
     body    = models.TextField(blank=True,null=True,default="")
-    preview = models.ImageField(upload_to="img/project_previews/"max_length=128,blank=True,null=True,default=None)
+    preview = models.ImageField(upload_to="img/project_previews/",blank=True,null=True,default=None)
     rel_date    = models.CharField(max_length=128,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
     modified = models.DateField()
