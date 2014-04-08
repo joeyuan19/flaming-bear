@@ -8,7 +8,7 @@ class Project(models.Model):
     preview = models.ImageField(upload_to="img/project_previews/",blank=True,null=True,default=None)
     rel_date    = models.CharField(max_length=128,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    modified = models.DateField()
+    modified = models.DateField(blank=True)
 
     def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
@@ -25,7 +25,7 @@ class Resume(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
     description = models.TextField(blank=True,null=True,default="")
     relevent_dates = models.CharField(max_length=128,blank=True,null=True,default="")
-    modified = models.DateTimeField()
+    modified = models.DateTimeField(blank=True)
 
     def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
@@ -40,7 +40,7 @@ class Friend(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
     Description = models.CharField(max_length=256,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    modified = models.DateTimeField(editable=False,max_length=128,blank=True,null=True,default="")
+    modified = models.DateTimeField(editable=False,blank=True)
 
     def save(self,*args,**kwargs):
         self.modified = datetime.datetime.today()
