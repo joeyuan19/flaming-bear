@@ -36,9 +36,9 @@ class ResumeCategory(models.Model):
     entries = models.ManyToManyField(Resume)
 
 class Friend(models.Model):
-    name = models.CharField(max_length=64,max_length=128,blank=True,null=True,default="")
-    title = models.CharField(max_length=128,max_length=128,blank=True,null=True,default="")
-    Description = models.CharField(max_length=256,max_length=128,blank=True,null=True,default="")
+    name = models.CharField(max_length=64,blank=True,null=True,default="")
+    title = models.CharField(max_length=128,blank=True,null=True,default="")
+    Description = models.CharField(max_length=256,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
     modified = models.DateTimeField(editable=False,max_length=128,blank=True,null=True,default="")
 
