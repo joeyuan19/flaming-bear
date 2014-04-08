@@ -13,11 +13,11 @@
     <div class='section-card section-title sticky-placeholder'>
         <div class='card-title sticky'>
             <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-                <span class='content'><h2>EDUCATION</h2></span>
+                <span class='content'><h2>{{ category.title}}</h2></span>
             </img>
         </div>
     </div>
-    {% for entry in entries %}
+    {% for entry in category.entries %}
     <div class='section-card section-item'>
         <div class="card-title">
             <span class='content'><h4><b>{{entry.title}}</b></h4></span>
@@ -29,202 +29,16 @@
             <span class='content'>{{entry.relevent_dates}}</span>
         </div>
     </div>
-    {% endfor %}
+    {% if forloop.last %}
+    {% else %}
     <div class='section-card section-div'>
         <div class='card-footer thin'>
             <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
         </div>
     </div>
-    <div class='section-card section-item'>
-        <div class="card-title">
-            <span class='content'><h4><b>Waldorf School of Garden City</b></h4></span>
-        </div>
-        <div class="card-desc">
-            <span class='content'>Attended the school from Kindergarten through highschool (K-12).  Waldorf is a relatively new (~1919) alternative education style to the majority of schools in the United States and the rest of the world.  It was developed from the philosophies of <a href="https://en.wikipedia.org/wiki/Rudolf_Steiner">Rudolf Steiner</a>.  The <abbr title="The Association of Waldorf Schools of North America">AWSNA</abbr> has some good info on the <a href="http://www.whywaldorfworks.org/">education philosophy</a>.</span>
-        </div>
-        <div class="card-duration">
-            <span class='content'>Graduated 6/2009</span>
-        </div>
-    </div>
+    {% endif %}
 </div>
-<div class='item-bin'>
-    <div class='section-card section-title sticky-placeholder'>
-        <div class='card-title sticky'>
-            <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-                <span class='content'><h2>WORK & RELATED EXPERIENCE</h2></span>
-            </img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <span class='content'><h4><b>Software Engineer, Newtyn Capital, NY, NY</b></h4></span>
-        </div>
-        <div class='card-desc'>
-            <span class='content'>Created custom computer programs and scripts for the purposes of automating the workflow for employees from all departments of the hedge fund.  The programs are written in mainly Java and made to be standalone runnable programs with GUIs.  Other projects involve data management and analysis, as well as authoring of libraries and extension libraries for PDF and Excel files.</span>
-        </div>
-        <div class='card-duration'>
-            <span class='content'>September 2013 to Present</span>
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <span class='content'><h4><b>YHack, New Haven, CT</b></h4></span>
-        </div>
-        <div class='card-desc'>
-            <span class='content'>Placed in the top 7 competitors at YHack the Yale University hackathon.  Created a receiver and transmitter to transfer data using an LED.<br/>The project was title <a href="https://www.hackerleague.org/hackathons/y-hack-at-yale/hacks/laserlock">Laser Lock</a>, and was mentioned in an article on the festival posted on <a href="http://techcrunch.com/2013/11/09/yale-adds-another-stop-to-the-college-hacker-circuit/">TechCrunch</a> </span>
-        </div>
-        <div class='card-duration'>
-            <span class='content'>June to August, 2013</span>
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <span class='content'><h4><b>Growth Hacker, BrandBacker (GoMakeIt Labs, Inc.), NY, NY</b></h4></span>
-        </div>
-        <div class='card-desc'>
-            <span class='content'>Constructed and Managed databases; Collected Data from various internet resources. Analyzed and organized data to grow the company&rsquo;s network. Developed programs in Python and SQL to accomplish tasks.  <a href="https://brandbacker.com"></a></span>
-        </div>
-        <div class='card-duration'>
-            <span class='content'>June to August, 2013</span>
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4><b>Independent Research & Development Project, NYU, NY, NY</b></h4>
-        </div>
-        <div class='card-desc'>
-            Created a website using Django, Python, SQL, Javascript, Ajax, and HTML. Developed code to handle file storage, dynamic user interfacing, asynchronous programming, content searching and display, and intricate database linkage. Details of implementation withheld while project is underway.
-        </div>
-        <div class='card-duration'>
-            2013 to present
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4><b>Production Assistant, Robinson Films Inc., NY, NY</b></h4>
-        </div>
-        <div class='card-desc'>
-            Assisted on various commercial and television productions; organized paperwork, reconciled petty cash accounts, provided transportation for talent, crew, and equipment as necessary.
-        </div>
-        <div class='card-duration'>
-            2012 to present
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4><b>HackNY Spring 2013 Hackathon Participant, Columbia University, NY, NY</b></h4>
-        </div>
-        <div class='card-desc'>
-            Won the award for best hardware hack.  Formed a team to create hardware and software over 24 hours.  Created a knife that would use measurable physical quantities to determine the difference between a tomato or potato upon cutting it.  The knife would then notify a server and find local tomato/potato related locations, a  random recipe that mainly featured tomatoes or potatoes, and send out text messages with a notice about which you were cutting.
-        </div>
-        <div class='card-duration'>
-            2012 to present
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4><b>HackNY Fall 2013 Hackathon Participant, Columbia University, NY, NY</b></h4>
-        </div>
-        <div class='card-desc'>
-            Formed a team to create a program over 24 hours to determine distance between 2 computers via high frequency sound emissions. Developed program in Python, JavaScript, and Node.js.
-        </div>
-        <div class='card-duration'>
-            2012 to present
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4>Research, Physics Department, NYU</h4>
-        </div>
-        <div class='card-desc'>
-            Developed imaging software in Python designed to obtain images of stars during daylight. Merged sequences of images to isolate dynamic and static elements across images.
-        </div>
-        <div class='card-duration'>
-            2011
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4>Math and Science Tutor, NYU College Learning Center, NY, NY</h4>
-        </div>
-        <div class='card-desc'>
-            Tutored college students on demand in Physics, Math (algebra, calculus), and Chemistry.
-        </div>
-        <div class='card-duration'>
-            2010 - 2011
-        </div>
-    </div>
-    <div class='section-card section-div'>
-        <div class='card-footer thin'>
-            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-title'>
-            <h4>Waiter, Via Emilia Restaurant, NY, NY</h4>
-        </div>
-        <div class='card-desc'>
-            Worked my way up from busboy to waiter with management responsibilities in a busy Italian restaurant in Gramercy.
-        </div>
-        <div class='card-duration'>
-            2006 - 2013
-        </div>
-    </div>
-</div>
-<div class='item-bin'>
-    <div class='section-card section-title sticky-placeholder'>
-        <div class='card-title sticky'>
-            <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-                <h2>SKILLS</h2>
-            </img>
-        </div>
-    </div>
-    <div class='section-card section-item'>
-        <div class='card-desc'>
-            Phyiscs; Mathematics; Analytics; Computer Programming; Proficient in Python, Java, C, C#, Django, JavaScript, Objective-C, SQL, Ajax, HTML, CSS, PHP, C++; Data analysis and Simulation; Detailed knowledge of common file formats: PDFs, Excel, etc.;  media savvy; Proficient in German; Moderate Spanish &amp; Portuguese; Problem-solver, Proactive, Positive, Team Player.
-        </div>
-    </div>
-</div>
+{% endfor %}
 <div class='item-bin'>
     <div class='section-card section-title'>
         <div class='card-title'>
