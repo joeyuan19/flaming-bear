@@ -13,7 +13,9 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
-	url(r'^robots.txt\.txt$',TemplateView.as_view(template_name='robots.html'),
+	url(r'^django_test/','PersonalSite.views.django_test',name='django_test'),
+    
+    url(r'^robots.txt\.txt$',TemplateView.as_view(template_name='robots.html')),
     
     url(r'^presentation/','PersonalSite.views.presentation',name='presentation'),
 	url(r'^test$','PersonalSite.views.test',name='test'),
