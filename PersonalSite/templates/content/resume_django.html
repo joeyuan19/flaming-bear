@@ -13,20 +13,20 @@
     <div class='section-card section-title sticky-placeholder'>
         <div class='card-title sticky'>
             <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
-                <span class='content'><h2>{{ category.title}}</h2></span>
+                <span class='content'><h2>{{ category.title|safe}}</h2></span>
             </img>
         </div>
     </div>
     {% for entry in category.entries.all %}
     <div class='section-card section-item'>
         <div class="card-title">
-            <span class='content'><h4><b>{{entry.title}}</b></h4></span>
+            <span class='content'><h4><b>{{entry.title|safe}}</b></h4></span>
         </div>
         <div class="card-desc">
-            <span class='content'>{{entry.description}}</span>
+            <span class='content'>{{entry.description|safe}}</span>
         </div>
         <div class="card-duration">
-            <span class='content'>{{entry.relevent_dates}}</span>
+            <span class='content'>{{entry.relevent_dates|safe}}</span>
         </div>
     </div>
     {% if forloop.last %}
