@@ -45,7 +45,9 @@ class Resume(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
     description = models.TextField(blank=True,null=True,default="")
     relevent_dates = models.CharField(max_length=128,blank=True,null=True,default="")
+    sort_date = models.DateTimeField(blank=True,default=timezone.now())
     modified = models.DateTimeField(editable=False,blank=True)
+    
     
     def __repr__(self):
         return "<Resume title:"+self.title+">"
