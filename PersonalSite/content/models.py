@@ -9,7 +9,7 @@ class Project(models.Model):
     preview = models.ImageField(upload_to="img/project_previews/",blank=True,null=True,default=None)
     rel_date = models.CharField(max_length=128,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    org_key = models.IntegerField(blank=True,default=0)
+    org_key = models.IntegerField(blank=True,null=True,default=0)
 
     def __repr__(self):
         return "<Project title:"+self.title+">"
@@ -24,7 +24,7 @@ class Project(models.Model):
 class ProjectCategory(models.Model):
     title = models.CharField(max_length=64)
     entries = models.ManyToManyField(Project,blank=True)
-    org_key = models.IntegerField(blank=True,default=0)
+    org_key = models.IntegerField(blank=True,null=True,default=0)
 
     
     def __repr__(self):
@@ -45,7 +45,7 @@ class Resume(models.Model):
     location = models.CharField(max_length=128,blank=True,null=True,default="")
     description = models.TextField(blank=True,null=True,default="")
     relevent_dates = models.CharField(max_length=128,blank=True,null=True,default="")
-    sort_date = models.DateTimeField(blank=True,default=timezone.now())
+    sort_date = models.DateTimeField(blank=True,null=True,default=timezone.now())
     
     
     def __repr__(self):
@@ -60,7 +60,7 @@ class Resume(models.Model):
 class ResumeCategory(models.Model):
     title = models.CharField(max_length=64)
     entries = models.ManyToManyField(Resume,blank=True)
-    org_key = models.IntegerField(blank=True,default=0)
+    org_key = models.IntegerField(blank=True,null=True,default=0)
     
     def list_entries(self):
         return "\n".join([i.__repr__() for i in self.entries.all()])
@@ -86,7 +86,7 @@ class Friend(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
     Description = models.CharField(max_length=256,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    org_key = models.IntegerField(blank=True,default=0)
+    org_key = models.IntegerField(blank=True,null=True,default=0)
     
     def __repr__(self):
         return "<Friend name:"+self.name+">"
