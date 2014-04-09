@@ -65,7 +65,7 @@ class ResumeCategory(models.Model):
     entries = models.ManyToManyField(Resume,blank=True)
     
     def list_entries(self):
-        return "\n".join(i for i in self.entries.all())
+        return "\n".join(str(i) for i in self.entries.all())
     
     def __repr__(self):
         return "<Resume Category title:"+self.title+">"
