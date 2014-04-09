@@ -69,6 +69,12 @@ class ResumeCategory(models.Model):
     def list_entries(self):
         return "\n".join([i.__repr__() for i in self.entries.all()])
     
+    def get_entries_by_date(self,rev_chron=True):
+        if rev_chron:
+            return entries.all().order_by('-sort_date')
+        else:
+            return entries.all().order_by('sort_date')
+    
     def __repr__(self):
         return "<Resume Category title:"+self.title+">"
 
