@@ -9,7 +9,6 @@ class Project(models.Model):
     preview = models.ImageField(upload_to="img/project_previews/",blank=True,null=True,default=None)
     rel_date = models.CharField(max_length=128,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    modified = models.DateField(editable=False,blank=True)
     org_key = models.IntegerField(blank=True,default=0)
 
     def __repr__(self):
@@ -21,9 +20,6 @@ class Project(models.Model):
     def __str__(self):
         return self.__repr__()
 
-    def save(self,*args,**kwargs):
-        self.modified = timezone.now()
-        super(Project,self).save(*args,**kwargs)
 
 class ProjectCategory(models.Model):
     title = models.CharField(max_length=64)
@@ -46,10 +42,10 @@ class Contact(models.Model):
 
 class Resume(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
+    location = models.CharField(max_length=128,blank=True,null=True,default="")
     description = models.TextField(blank=True,null=True,default="")
     relevent_dates = models.CharField(max_length=128,blank=True,null=True,default="")
     sort_date = models.DateTimeField(blank=True,default=timezone.now())
-    modified = models.DateTimeField(editable=False,blank=True)
     
     
     def __repr__(self):
@@ -60,10 +56,6 @@ class Resume(models.Model):
 
     def __str__(self):
         return self.__repr__()
-
-    def save(self,*args,**kwargs):
-        self.modified = timezone.now()
-        super(Resume,self).save(*args,**kwargs)
 
 class ResumeCategory(models.Model):
     title = models.CharField(max_length=64)
@@ -94,7 +86,6 @@ class Friend(models.Model):
     title = models.CharField(max_length=128,blank=True,null=True,default="")
     Description = models.CharField(max_length=256,blank=True,null=True,default="")
     url = models.URLField(max_length=128,blank=True,null=True,default="")
-    modified = models.DateTimeField(editable=False,blank=True)
     org_key = models.IntegerField(blank=True,default=0)
     
     def __repr__(self):
@@ -105,8 +96,4 @@ class Friend(models.Model):
 
     def __str__(self):
         return self.__repr__()
-
-    def save(self,*args,**kwargs):
-        self.modified = timezone.now()
-        super(Friend,self).save(*args,**kwargs)
 
