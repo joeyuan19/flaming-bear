@@ -1,5 +1,7 @@
 PersonalSite/extras/*
 PersonalSite/assets/*
+migrations/*
+
 
 *.swp
 *.un~
