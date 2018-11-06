@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import RedirectView
-
+from django.views.generic import TemplateView
 
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
@@ -12,9 +12,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-
 urlpatterns = patterns('',
-	url(r'^presentation/','PersonalSite.views.presentation',name='presentation'),
+	url(r'^django_test/','PersonalSite.views.django_test',name='django_test'),
+    
+    url(r'^robots.txt\.txt$',TemplateView.as_view(template_name='robots.html')),
+    
+    url(r'^presentation/','PersonalSite.views.presentation',name='presentation'),
 	url(r'^test$','PersonalSite.views.test',name='test'),
 	# Admin
 	url(r'^admin/', include(admin.site.urls)),
@@ -34,6 +37,9 @@ urlpatterns = patterns('',
     
     url(r'','PersonalSite.views.homepage_redirect',name='homepage_redirect'),    
 ) + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+
 
 urlpatterns += staticfiles_urlpatterns()
 

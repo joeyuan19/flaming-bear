@@ -157,6 +157,7 @@ a:hover {
 }
 .section-title {
 	font-family: 'optima','candara','arial', sans-serif;
+    overflow: hidden;
 }
 .card-footer {
 	width: 100%;
@@ -303,6 +304,16 @@ a:hover {
 	text-align: center;
 	
 }
+
+#so-stat-card {
+    display: none;
+}
+
+
+
+
+
+
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 

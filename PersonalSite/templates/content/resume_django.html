@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<div class='item-bin'>
+	<div class='section-card section-title sticky-placeholder'>
+		<div id="resume-header" class='card-title sticky'>
+			<img class='backdrop-image' src="{% static "img/backdrops/page-header-img.jpg" %}">
+				<span class='content'><h1>Resume</h1></span>
+			</img>
+		</div>
+    </div>
+</div>
+{% for category in categories %}
+<div class='item-bin'>
+    <div class='section-card section-title sticky-placeholder'>
+        <div class='card-title sticky'>
+            <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
+                <span class='content'><h2>{{ category.title|safe}}</h2></span>
+            </img>
+        </div>
+    </div>
+    {% for entry in category.entries.all %}
+    <div class='section-card section-item'>
+        <div class="card-title">
+            <span class='content'><h4><b>{{entry.title|safe}}</b></h4></span>
+        </div>
+        <div class="card-desc">
+            <span class='content'>{{entry.description|safe}}</span>
+        </div>
+        <div class="card-duration">
+            <span class='content'>{{entry.relevent_dates|safe}}</span>
+        </div>
+    </div>
+    {% if forloop.last %}
+    {% else %}
+    <div class='section-card section-div'>
+        <div class='card-footer thin'>
+            <img class="backdrop-image" src="{% static "img/backdrops/section-div.jpg" %}"></img>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endfor %}
+<div class='item-bin'>
+    <div class='section-card section-title'>
+        <div class='card-title'>
+            <img class='backdrop-image' src="{% static "img/backdrops/section-header-img.jpg" %}">
+                <h5><b>References available on request</b></h5>
+            </img>
+        </div>
+    </div>
+</div>
+
+
+<p>Canary: {{ canary }}</p>
+<p>Debug: {{debug}}</p>
+
+

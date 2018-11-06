@@ -70,9 +70,44 @@
 					<a id="li" class="contact-item-link" href="https://www.linkedin.com/pub/joseph-yuan/78/5a0/167/" target="_newtab">
 						<img  id="li-icon"class="contact-icon" src="{% static "img/social_icons/li-icon-hover.png" %}"></img>
 					</a>
-				</div>
+				</li>
 			</ul><!-- contact-list -->
-			<!-- add Instagram -->
+		</div><!-- card-desc -->
+	</div><!-- card -->
+	<div class='section-card section-item'>
+		<div class='card-desc'>
+			<ul class='contact-list card-image'>
+				<li class="contact-list-item">
+					<a id="so" class="contact-item-link" href="https://stackoverflow.com/users/2461379/farmerjoe" target="_newtab">
+						<img  id="so-icon"class="contact-icon" src="{% static "img/social_icons/so-icon-hover.png" %}"></img>
+					</a>
+                    <div id='so-stat-card'>
+                        <a href="http://stackexchange.com/users/2867319">
+                            <img src="http://stackexchange.com/users/flair/2867319.png?theme=dark" width="208" height="58" alt="profile for farmerjoe on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for farmerjoe on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+                        </a>
+                    </div>
+                    <script type="text/javascript">
+                        $('#so').mouseenter(function(){
+                            $('#so-stat-card').fadeIn();
+                        });
+                        $('#so').mouseleave(function(){
+                            $('#so-stat-card').fadeOut();
+                        });
+                        $('#so').mousemove(
+                            function(e) {
+                                console.log(e.pageX + ", " + e.pageY);
+                                $('#so-stat-card').css({
+                                    'left':e.pageX - $(this).offsetLeft,
+                                    'top':e.pageY - $(this).offsetTop
+                                });
+                            }
+                        );
+                    </script>
+				</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
 		</div><!-- card-desc -->
 	</div><!-- card -->
 </div>
